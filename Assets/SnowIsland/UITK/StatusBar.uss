@@ -1,0 +1,11 @@
+.red-progress .unity-progress-bar__progress {
+    background-color: rgb(255, 0, 0);
+}
+
+.green-progress .unity-progress-bar__progress {
+    background-color: rgb(0, 255, 0);
+}
+
+.blue-progress .unity-progress-bar__progress {
+    background-color: rgb(0, 0, 255);
+}
