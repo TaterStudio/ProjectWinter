@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 359a603efbe076645a256c059b1e7d78
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Samples/UX Examples/Cursor System/Cursors/States/Generic
+    Tinted/Generic Blue Normal Select.asset
+  uploadId: 743033

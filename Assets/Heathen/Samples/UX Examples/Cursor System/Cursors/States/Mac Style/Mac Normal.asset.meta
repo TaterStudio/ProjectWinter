@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 329c21cc9b55291459b49d9ff50f8f5a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Samples/UX Examples/Cursor System/Cursors/States/Mac
+    Style/Mac Normal.asset
+  uploadId: 743033

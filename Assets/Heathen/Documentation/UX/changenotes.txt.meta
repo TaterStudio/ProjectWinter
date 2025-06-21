@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a4927495e1938d84594acd1a13ac228b
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Documentation/UX/changenotes.txt
+  uploadId: 743033

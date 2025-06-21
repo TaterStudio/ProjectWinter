@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 06e6f859a7487e74d80b8fbe9e578122
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Samples/UX Examples/Log/Skybox.mat
+  uploadId: 743033

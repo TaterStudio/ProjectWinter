@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 17537fff6f20c154b8dcfe764d155bd5
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Assets/Common/Scripts/Attributes/Editor/HeathenEngineering.Editor.asmdef
+  uploadId: 743033

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 30f466d4ca9d3074b9bdcb2ba0dcccc1
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Samples/UX Examples/UX Examples Assembly.asmdef
+  uploadId: 743033

@@ -1,0 +1,19 @@
+{
+    "name": "TaterGame.SnowIsland",
+    "rootNamespace": "TaterGame.SnowIsland",
+    "references": [
+        "GUID:610fd45c6eeeca2498159ee7433cce1c",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:1baf1ffff1031e948b3b228ab3453251"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

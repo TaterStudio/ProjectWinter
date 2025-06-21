@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f5702ca0318eb1942af8daf18131f44d
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Assets/com.heathen.ux/Runtime/Heathen.UX.asmdef
+  uploadId: 743033

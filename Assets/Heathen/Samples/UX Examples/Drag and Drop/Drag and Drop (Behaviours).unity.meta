@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bd6c956a15db71149adcb0a2d1be01c4
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Samples/UX Examples/Drag and Drop/Drag and Drop (Behaviours).unity
+  uploadId: 743033

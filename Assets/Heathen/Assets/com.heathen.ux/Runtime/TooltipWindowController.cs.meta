@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 84431077f09aef848b1d84424944d856
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Assets/com.heathen.ux/Runtime/TooltipWindowController.cs
+  uploadId: 743033

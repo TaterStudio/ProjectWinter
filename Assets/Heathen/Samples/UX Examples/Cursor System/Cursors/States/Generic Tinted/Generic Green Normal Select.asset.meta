@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: eac690687426f4c418c97e077c5b7a50
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Samples/UX Examples/Cursor System/Cursors/States/Generic
+    Tinted/Generic Green Normal Select.asset
+  uploadId: 743033

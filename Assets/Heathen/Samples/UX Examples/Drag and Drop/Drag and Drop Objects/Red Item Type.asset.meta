@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 64ec84ea6dd263c44991afcf877887a8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Samples/UX Examples/Drag and Drop/Drag and Drop Objects/Red
+    Item Type.asset
+  uploadId: 743033

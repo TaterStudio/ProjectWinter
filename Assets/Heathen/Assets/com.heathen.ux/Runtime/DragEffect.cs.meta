@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9cb16bdbd3793674db523048e0980257
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Assets/com.heathen.ux/Runtime/DragEffect.cs
+  uploadId: 743033

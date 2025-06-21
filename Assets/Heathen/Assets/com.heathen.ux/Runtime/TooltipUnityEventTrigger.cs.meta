@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 75e038a05c1babd4fa768b0c27fd5d82
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Assets/com.heathen.ux/Runtime/TooltipUnityEventTrigger.cs
+  uploadId: 743033

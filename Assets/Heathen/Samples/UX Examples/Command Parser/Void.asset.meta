@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ada2f4d16f40f1f4c9ffe7c7fe39114e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Samples/UX Examples/Command Parser/Void.asset
+  uploadId: 743033

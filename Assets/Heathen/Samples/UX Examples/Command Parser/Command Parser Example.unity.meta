@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ebef1dded59a86e40a9f521e80f6351c
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Samples/UX Examples/Command Parser/Command Parser Example.unity
+  uploadId: 743033

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2abaafd8fb7c32a459d231ed195f0e8a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Assets/com.heathen.ux/Editor/UXComEditor.cs
+  uploadId: 743033

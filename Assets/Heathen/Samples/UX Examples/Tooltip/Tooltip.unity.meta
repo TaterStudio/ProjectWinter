@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0984059c2285098499e30c48df63aa7e
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Samples/UX Examples/Tooltip/Tooltip.unity
+  uploadId: 743033

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 782313ab6b135f1459bc704cc5807881
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 201905
+  packageName: Toolkit for UX & UI 2025
+  packageVersion: 4.0.0
+  assetPath: Assets/Heathen/Samples/UX Examples/Cursor System/Cursors/States/Mac
+    Style/Mac Normal Wedge.asset
+  uploadId: 743033
