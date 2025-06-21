@@ -21,7 +21,7 @@
         "SimulationUpdateTimeMode": 0,
         "PlayerCount": 10,
         "TickRateSelection": {
-            "Client": 64,
+            "Client": 30,
             "ServerIndex": 0,
             "ClientSendIndex": 1,
             "ServerSendIndex": 1
@@ -66,7 +66,8 @@
         "Assembly-CSharp-firstpass",
         "Fusion.Addons.Physics",
         "Fusion.Addons.FSM",
-        "TaterGame.SnowIsland"
+        "TaterGame.SnowIsland",
+        "TaterGame.SnowIsland.Shared"
     ],
     "UseSerializableDictionary": true,
     "NullChecksForNetworkedProperties": true,

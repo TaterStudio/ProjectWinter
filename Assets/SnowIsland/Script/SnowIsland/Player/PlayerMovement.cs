@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using Fusion;
 using TaterGame.SnowIsland.Shared;
 using UnityEngine;
@@ -7,33 +8,70 @@ using UnityEngine.InputSystem;
 namespace TaterGame.SnowIsland
 {
     public class PlayerMovement: NetworkBehaviour
-    {
-        public const int SpeedScale = 100;
-        private PlayerInput m_PlayerInput;
+    { 
+        [Networked,OnChangedRender(nameof(InvokeOnVelocityChange))]
+        public int Velocity { get; set; }
+        public Action<int> OnVelocityChange;
         private CharacterController m_CharacterController;
         private PlayerAvatar m_PlayerAvatar;
-        private int m_RunSpeed = 400;
+        [SerializeField]
+        private int m_RunSpeed = 600;
+        [SerializeField]
         private int m_WalkSpeed = 400;
-        private void Start()
+
+        private PlayerInputData m_InputData;
+
+        private void Awake()
         {
-            m_PlayerInput = ApplicationScope.Resolve<PlayerInput>();
             m_CharacterController = GetComponent<CharacterController>();
             m_PlayerAvatar = GetComponent<PlayerAvatar>();
         }
 
+        private void Update()
+        {
+        }
+
         public override void FixedUpdateNetwork()
         {
-            if (m_PlayerInput == null)
+            if (!GetInput<PlayerInputData>(out m_InputData))
             {
                 return;
             }
-            var direction = m_PlayerInput.actions[Constraints.Input.Move].ReadValue<Vector2>();
-            float actualSpeed = (float)m_WalkSpeed / SpeedScale;
+            
+            int finalSpeed = m_WalkSpeed;
+            if (CanRun())
+            {
+                finalSpeed = m_RunSpeed;
+            }
+            var direction = m_InputData.MoveDirection;
+            float actualSpeed = (float)finalSpeed / Constraints.Character.SpeedScale;
             Vector3 deltaMove = new Vector3(direction.x,0,direction.y)* actualSpeed * Runner.DeltaTime;
             m_CharacterController.Move(deltaMove);
             if(deltaMove!=Vector3.zero){
                 m_PlayerAvatar.SetModelForward(deltaMove);
             }
+            else
+            {
+                finalSpeed = 0;
+            }
+
+            Velocity = finalSpeed;
+        }
+
+
+        private void InvokeOnVelocityChange()
+        {
+            OnVelocityChange?.Invoke(this.Velocity);
+        }
+
+        /// <summary>
+        /// 玩家是否可以奔跑
+        /// </summary>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private bool CanRun()
+        {
+            return m_InputData.NetworkButtons.IsSet(PlayerInputButton.Run);
         }
     }
 }

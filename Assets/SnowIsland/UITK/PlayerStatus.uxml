@@ -1,10 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/SnowIsland/UITK/StatusBar.uss?fileID=7433441132597879392&amp;guid=ecc7ba7cef46a104081d5bb8968a971b&amp;type=3#StatusBar" />
-    <ui:VisualElement name="Root" style="flex-grow: 1;">
-        <ui:VisualElement style="flex-grow: 1; align-self: flex-start; flex-direction: column; min-width: 512px; min-height: 256px; max-width: 512px; max-height: 256px;">
-            <ui:ProgressBar value="22" title="生命值" name="HealthBar" class="red-progress" />
-            <ui:ProgressBar value="22" title="温暖值" name="WarmthBar" class="green-progress" />
-            <ui:ProgressBar value="22" title="饱食度" name="FoodBar" class="blue-progress" />
-        </ui:VisualElement>
+    <ui:VisualElement name="Root" style="flex-grow: 1; align-self: flex-start; flex-direction: column; min-width: 512px; min-height: 128px; max-width: 512px; max-height: 128px;">
+        <ui:ProgressBar value="22" title="生命值" name="HealthBar" class="red-progress" />
+        <ui:ProgressBar value="22" title="温暖值" name="WarmthBar" class="green-progress" />
+        <ui:ProgressBar value="22" title="饱食度" name="FoodBar" class="blue-progress" />
     </ui:VisualElement>
 </ui:UXML>

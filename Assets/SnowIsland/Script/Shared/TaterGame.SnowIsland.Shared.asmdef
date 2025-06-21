@@ -2,11 +2,12 @@
     "name": "TaterGame.SnowIsland.Shared",
     "rootNamespace": "TaterGame.SnowIsland.Shared",
     "references": [
-        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:58d42c70423577947911995925414405"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": false,
+    "allowUnsafeCode": true,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,

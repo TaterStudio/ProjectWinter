@@ -1,10 +1,11 @@
 using System;
+using Fusion;
 using TaterGame.SnowIsland.Shared;
 using UnityEngine;
 
 namespace TaterGame.SnowIsland
 {
-    public class PlayerCharacter: MonoBehaviour
+    public class PlayerCharacter: NetworkBehaviour
     {
         public GameObject HeadPivot => m_HeadPivot;
         [SerializeField]
@@ -14,5 +15,11 @@ namespace TaterGame.SnowIsland
         [SerializeField]
         private Transform m_Model;
 
+        public Action OnSpawned;
+        
+        public override void Spawned()
+        {
+            OnSpawned?.Invoke();
+        }
     }
 }

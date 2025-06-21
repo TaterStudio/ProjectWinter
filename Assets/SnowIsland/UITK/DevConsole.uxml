@@ -1,0 +1,5 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Root" style="width: 256px; height: 64px; min-height: 64px; max-height: 64px; min-width: 350px; max-width: 350px; bottom: 0; left: 0; position: absolute;">
+        <ui:TextField placeholder-text="请输入指令" is-delayed="true" />
+    </ui:VisualElement>
+</ui:UXML>

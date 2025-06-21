@@ -9,17 +9,22 @@ namespace TaterGame.SnowIsland
     {
         public GameObject PlayerPrefab;
         private EventCenter m_EventCenter;
+        private ClientState m_ClientState;
 
         private void Start()
         {
             m_EventCenter = ApplicationScope.Resolve<EventCenter>();
+            m_ClientState = ApplicationScope.Resolve<ClientState>();
         }
 
         public void PlayerJoined(PlayerRef player)
         {
             if (player == Runner.LocalPlayer)
             {
-                var obj = Runner.Spawn(PlayerPrefab).gameObject;
+                var networkObject = Runner.Spawn(PlayerPrefab);
+                networkObject.AssignInputAuthority(Runner.LocalPlayer);
+                var obj = networkObject.gameObject;
+                m_ClientState.LocalPlayer = obj;
                 if (obj.TryGetComponent(out PlayerCharacter playerCharacter))
                 {
                     m_EventCenter.PlayerSpawnEvent.OnNext(new PlayerSpawnEvent()

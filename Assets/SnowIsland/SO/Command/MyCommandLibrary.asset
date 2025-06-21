@@ -16,5 +16,5 @@ MonoBehaviour:
   commandStartString: /
   developerCommands:
   - {fileID: 11400000, guid: 14000715ff6b0e640b0e7290c93e10b6, type: 2}
-  - {fileID: 11400000, guid: 86200551696a7994b9b049693d3cb000, type: 2}
+  - {fileID: 11400000, guid: 6c8f98a7ffd0a934b816a947a05a15e6, type: 2}
   userCommands: []

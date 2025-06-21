@@ -22,6 +22,7 @@ namespace TaterGame.SnowIsland
         {
             base.Configure(builder);
             builder.Register<EventCenter>(Lifetime.Singleton).AsSelf();
+            builder.Register<ClientState>(Lifetime.Singleton).AsSelf();
             builder.RegisterComponent(m_PlayerInput).AsSelf();
         }
 
