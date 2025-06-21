@@ -1,4 +1,6 @@
 using TaterGame.SnowIsland.Shared;
+using UnityEngine;
+using UnityEngine.InputSystem;
 using VContainer;
 using VContainer.Unity;
     
@@ -7,6 +9,9 @@ namespace TaterGame.SnowIsland
     public class ApplicationScope: LifetimeScope
     {
         private static ApplicationScope s_Instance;
+        
+        [SerializeField]
+        private PlayerInput m_PlayerInput;
         protected override void Awake()
         {
             base.Awake();
@@ -16,8 +21,8 @@ namespace TaterGame.SnowIsland
         protected override void Configure(IContainerBuilder builder)
         {
             base.Configure(builder);
-            EventCenter eventCenter = new EventCenter();
-            builder.RegisterInstance(eventCenter);
+            builder.Register<EventCenter>(Lifetime.Singleton).AsSelf();
+            builder.RegisterComponent(m_PlayerInput).AsSelf();
         }
 
         public static T Resolve<T>()

@@ -9,9 +9,10 @@ namespace TaterGame.SnowIsland
         public GameObject HeadPivot => m_HeadPivot;
         [SerializeField]
         private GameObject m_HeadPivot;
-        
-        private void Start()
-        {
-        }
+
+        public Transform Model=>m_Model;
+        [SerializeField]
+        private Transform m_Model;
+
     }
 }

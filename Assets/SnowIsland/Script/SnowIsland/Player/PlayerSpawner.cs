@@ -10,7 +10,7 @@ namespace TaterGame.SnowIsland
         public GameObject PlayerPrefab;
         private EventCenter m_EventCenter;
 
-        private void Awake()
+        private void Start()
         {
             m_EventCenter = ApplicationScope.Resolve<EventCenter>();
         }
