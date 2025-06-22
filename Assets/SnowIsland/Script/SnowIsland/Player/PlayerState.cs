@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace TaterGame.SnowIsland
 {
+    //todo: 迁移到PlayerStateMachine
     [DisallowMultipleComponent]
     public class PlayerState: NetworkBehaviour
     {
@@ -13,16 +14,7 @@ namespace TaterGame.SnowIsland
         [field: SerializeField]
         public PlayerLocomotionState LocomotionState { get; set; }
 
-        public PlayerStatusData PlayerStatusData { get; set; } = new PlayerStatusData
-        {
-            Health = 1000,
-            HealthMax = 1000,
-            Warmth = 200,
-            WarmthMax = 200,
-            Food = 200,
-            FoodMax = 200
-        }; 
-        
+
         /// <summary>
         /// 是否正在跑步，如果是，则用2点饱食度换1点温暖度
         /// 默认情况下温暖度是每秒-2，跑步状态下是每秒-1

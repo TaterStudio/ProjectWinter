@@ -10,11 +10,13 @@ namespace TaterGame.SnowIsland
     {
         private PlayerStateMachine m_MachineRoot;
         private PlayerAnimation m_PlayerAnimation;
+        private PlayerStatus m_PlayerStatus;
 
         protected override void Awake()
         {
             base.Awake();
             m_PlayerAnimation = GetComponentInParent<PlayerAnimation>();
+            m_PlayerStatus = GetComponentInParent<PlayerStatus>();
             m_MachineRoot = GetComponentInParent<PlayerStateMachine>();
         }
         
@@ -35,7 +37,7 @@ namespace TaterGame.SnowIsland
             }
             
             bool isRun = m_InputData.NetworkButtons.IsSet(PlayerInputButton.Run);
-            bool canRun = PlayerState.PlayerStatusData.Food > 0;
+            bool canRun = m_PlayerStatus.PlayerStatusData.Food > 0;
             if (isRun && canRun)
             {
                 PlayerState.IsRun = true;

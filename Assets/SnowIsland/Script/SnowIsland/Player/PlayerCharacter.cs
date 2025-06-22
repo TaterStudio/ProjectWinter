@@ -12,6 +12,10 @@ namespace TaterGame.SnowIsland
         [SerializeField]
         private GameObject m_HeadPivot;
 
+        public GameObject AttackPivot => m_AttackPivot;
+        [SerializeField]
+        private GameObject m_AttackPivot;
+
         public Transform Model=>m_Model;
         [SerializeField]
         private Transform m_Model;

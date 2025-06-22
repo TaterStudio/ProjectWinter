@@ -49,7 +49,7 @@ namespace TaterGame.SnowIsland
                 case IMeleeItem meleeItem:
                     if(PlayerState.CanAttack())
                     {
-                        m_PlayerAttackItemState.Duration = meleeItem.UseDuration;
+                        m_PlayerAttackItemState.MeleeItem = meleeItem;
                         Machine.TryActivateState(m_PlayerAttackItemState.StateId);
                     }
                     break;

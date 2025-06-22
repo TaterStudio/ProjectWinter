@@ -2,6 +2,8 @@ namespace TaterGame.SnowIsland.Shared
 {
     public interface IMeleeItem
     {
-        public float UseDuration { get; }
+        public float AtkZOffset { get; }
+        public float AtkSphereRadius { get; }
+        public int AtkDamage { get; }
     }
 }
