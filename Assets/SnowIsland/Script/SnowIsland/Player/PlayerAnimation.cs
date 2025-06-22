@@ -64,7 +64,7 @@ namespace TaterGame.SnowIsland
             PlayMovement();
         }
 
-        [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
+        [Rpc(sources: RpcSources.InputAuthority, targets: RpcTargets.All)]
         public void RPC_PlayAtkRpc()
         {
             m_AnimancerComponent.Parameters.SetValue("AtkIndex",(float)m_AtkIndex);
@@ -84,7 +84,7 @@ namespace TaterGame.SnowIsland
             m_AnimancerComponent.Play(m_Movement);
         }
 
-        [Rpc(RpcSources.All, RpcTargets.All)]
+        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
         public void RPC_ExitAtkAnimRpc()
         {
             m_OnExitAtk.OnNext(Unit.Default);
