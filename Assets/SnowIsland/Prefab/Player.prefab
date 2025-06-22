@@ -255,59 +255,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556cd0603670453daf6cfa3bfecf1121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Dash:
-    _FadeDuration: 0.25
-    _Speed: 1
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 0}
-    _NormalizedStartTime: NaN
-  m_Death:
-    _FadeDuration: 0.25
-    _Speed: NaN
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: a8b700e4a0e5fbc4495cf90ef5f9df69, type: 3}
-    _NormalizedStartTime: NaN
-  m_Revive:
-    _FadeDuration: 0.25
-    _Speed: -1
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Clip: {fileID: 7400000, guid: a8b700e4a0e5fbc4495cf90ef5f9df69, type: 3}
-    _NormalizedStartTime: 1.0285712
-  m_Movement:
-    _FadeDuration: 0.25
-    _Speed: 1
-    _Events:
-      _NormalizedTimes: []
-      _Callbacks: []
-      _Names: []
-    _Animations:
-    - {fileID: 7400000, guid: 895a90995887c224dba1cb9e0d8d5508, type: 3}
-    - {fileID: 7400000, guid: 34762f22cafefd148b7594a196ddbd8f, type: 3}
-    - {fileID: 7400000, guid: 34762f22cafefd148b7594a196ddbd8f, type: 3}
-    _Speeds:
-    - 1
-    - 1
-    - 2
-    _SynchronizeChildren: 
-    _Thresholds:
-    - 0
-    - 4
-    - 6
-    _DefaultParameter: 0
-    _ExtrapolateSpeed: 1
-    _ParameterName: {fileID: 11400000, guid: 4e1d84e67a5a09a43bfdbdd9134b7df8, type: 2}
-  references:
-    version: 2
-    RefIds: []
+  m_Dash: {fileID: 0}
+  m_Death: {fileID: 11400000, guid: cc08b3abd7b879e4a921cf9999d8fbef, type: 2}
+  m_Revive: {fileID: 11400000, guid: f09a0ab96c320774a9643ad85d767ad5, type: 2}
+  m_Movement: {fileID: 11400000, guid: 604d996bd0cf030489d830f69a5296d1, type: 2}
+  m_MovementAim: {fileID: 11400000, guid: ec55e88cf71b7a94082fdcef0db91fd1, type: 2}
+  m_Atk: {fileID: 11400000, guid: 9b694cffc4282594d8ada01b2738b18f, type: 2}
 --- !u!114 &3670958883164313841
 MonoBehaviour:
   m_ObjectHideFlags: 0

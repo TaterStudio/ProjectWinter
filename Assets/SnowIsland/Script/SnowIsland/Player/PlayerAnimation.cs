@@ -9,17 +9,23 @@ namespace TaterGame.SnowIsland
     public class PlayerAnimation: MonoBehaviour
     {
         [SerializeField]
-        private ClipTransition m_Dash;
+        private TransitionAsset m_Dash;
         
         [SerializeField]
-        private ClipTransition m_Death;
+        private TransitionAsset m_Death;
 
         [SerializeField]
-        private ClipTransition m_Revive;
+        private TransitionAsset m_Revive;
 
         [SerializeField]
-        private LinearMixerTransition m_Movement;
-        
+        private TransitionAsset m_Movement;
+
+        [SerializeField]
+        private TransitionAsset m_MovementAim;
+
+        [SerializeField]
+        private TransitionAsset m_Atk;
+
         private PlayerCharacter m_PlayerCharacter;
         private AnimancerComponent m_AnimancerComponent;
         private PlayerState m_PlayerState;
@@ -29,7 +35,7 @@ namespace TaterGame.SnowIsland
         /// <summary>
         /// 攻击有三种，显示具体攻击是哪一种
         /// </summary>
-        [ShowInInspector]
+        [ShowInInspector,ReadOnly]
         private int m_AtkIndex;
         
         private void Awake()
