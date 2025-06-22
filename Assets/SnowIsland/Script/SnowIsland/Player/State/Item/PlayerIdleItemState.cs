@@ -6,20 +6,20 @@ namespace TaterGame.SnowIsland
     [DisallowMultipleComponent]
     public class PlayerIdleItemState: PlayerBaseItemState
     {
-        private PlayerInputData m_InputData;
         private ItemService m_ItemService;
         private PlayerUseItemState m_PlayerUseItemState;
         private PlayerAttackItemState m_PlayerAttackItemState;
         private PlayerInventoryState m_PlayerInventoryState;
-        private void Awake()
+        protected override void Awake()
         {
-            m_PlayerUseItemState = GetComponent<PlayerUseItemState>();
-            m_PlayerAttackItemState = GetComponent<PlayerAttackItemState>();
+            base.Awake();
+            m_PlayerUseItemState = GetStateComponent<PlayerUseItemState>();
+            m_PlayerAttackItemState = GetStateComponent<PlayerAttackItemState>();
             m_ItemService = ApplicationScope.Resolve<ItemService>();
             m_PlayerInventoryState = GetComponentInParent<PlayerInventoryState>();
         }
         
-        protected override PlayerItemState GetLocomotionState()
+        protected override PlayerItemState GetItemState()
         {
             return PlayerItemState.Idle;
         }
@@ -27,11 +27,15 @@ namespace TaterGame.SnowIsland
 
         protected override void OnFixedUpdate()
         {
-            if (!GetInput<PlayerInputData>(out m_InputData))
+            base.OnFixedUpdate();
+
+            if (!HasInput)
             {
                 return;
             }
+            
             bool isUse = m_InputData.NetworkButtons.IsSet(PlayerInputButton.Use);
+            
             if (!isUse)
             {
                 return;
@@ -43,8 +47,11 @@ namespace TaterGame.SnowIsland
             switch (item.ItemDataSo)
             {
                 case IMeleeItem meleeItem:
-                    m_PlayerAttackItemState.Duration = meleeItem.UseDuration;
-                    Machine.TryActivateState(m_PlayerAttackItemState.StateId);
+                    if(PlayerState.CanAttack())
+                    {
+                        m_PlayerAttackItemState.Duration = meleeItem.UseDuration;
+                        Machine.TryActivateState(m_PlayerAttackItemState.StateId);
+                    }
                     break;
             }
         }

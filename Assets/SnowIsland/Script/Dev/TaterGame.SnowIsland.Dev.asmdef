@@ -1,7 +1,18 @@
 {
     "name": "TaterGame.SnowIsland.Dev",
     "rootNamespace": "TaterGame.SnowIsland.Dev",
-    "references": [],
+    "references": [
+        "GUID:610fd45c6eeeca2498159ee7433cce1c",
+        "GUID:1baf1ffff1031e948b3b228ab3453251",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:8917c558323878e46933d9c06e517e08",
+        "GUID:4c25c05f410a3a447a75c3b0909152ef",
+        "GUID:58d42c70423577947911995925414405",
+        "GUID:f5702ca0318eb1942af8daf18131f44d",
+        "GUID:6478cfb0c7c17da49b75218eea376967",
+        "GUID:18022fd9071c2ac4a874c335779d8135"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

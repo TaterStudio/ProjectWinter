@@ -37,7 +37,7 @@ namespace TaterGame.SnowIsland
 
         public override void FixedUpdateNetwork()
         {
-            if (!m_PlayerState.CanMove())
+            if (!CanMove())
             {
                 return;
             }
@@ -81,6 +81,12 @@ namespace TaterGame.SnowIsland
         private bool CanRun()
         {
             return m_PlayerState.IsRun;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private bool CanMove()
+        {
+            return m_PlayerState.CanMove();
         }
     }
 }

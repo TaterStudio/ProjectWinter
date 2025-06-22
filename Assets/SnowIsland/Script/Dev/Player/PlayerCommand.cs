@@ -3,7 +3,7 @@ using HeathenEngineering.Events;
 using TaterGame.SnowIsland.Shared;
 using UnityEngine;
 
-namespace TaterGame.SnowIsland
+namespace TaterGame.SnowIsland.Dev
 {
     [DisallowMultipleComponent]
     public class PlayerCommand: MonoBehaviour

@@ -27,7 +27,7 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "6c2ab1b8-8984-453a-af3d-a3c78ae1679a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -81,6 +81,15 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "641cd816-40e6-41b4-8c3d-04687c349290",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FakeDead",
+                    "type": "Button",
+                    "id": "d65e2432-a493-402b-9cb1-1bb95f11c517",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -470,6 +479,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e6e11cdd-a143-4953-b57b-cbc0b3d2a1a3",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "FakeDead",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

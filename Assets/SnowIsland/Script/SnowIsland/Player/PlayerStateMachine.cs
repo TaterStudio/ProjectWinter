@@ -16,20 +16,31 @@ namespace TaterGame.SnowIsland
         [SerializeField]
         private GameObject m_ItemStateRoot;
 
+        public StateMachine<StateBehaviour> ItemMachine => m_ItemMachine;
         private StateMachine<StateBehaviour> m_LocomotionMachine;
         private StateMachine<StateBehaviour> m_ItemMachine;
         
         public void CollectStateMachines(List<IStateMachine> stateMachines)
         {
-            StateBehaviour[] locomotionStates = m_LocomotionStateRoot.GetComponents<StateBehaviour>();
+            StateBehaviour[] locomotionStates = m_LocomotionStateRoot.GetComponentsInChildren<StateBehaviour>();
             m_LocomotionMachine = new StateMachine<StateBehaviour>("Locomotion", locomotionStates);
             m_LocomotionMachine.SetDefaultState(locomotionStates.First(x => x is PlayerNormalLocomotionState).StateId);
             stateMachines.Add(m_LocomotionMachine);
             
-            StateBehaviour[] itemStates = m_ItemStateRoot.GetComponents<StateBehaviour>();
+            StateBehaviour[] itemStates = m_ItemStateRoot.GetComponentsInChildren<StateBehaviour>();
             m_ItemMachine = new StateMachine<StateBehaviour>("Item", itemStates);
             m_ItemMachine.SetDefaultState(itemStates.First(x => x is PlayerIdleItemState).StateId);
             stateMachines.Add(m_ItemMachine);
+        }
+
+        public void TryMarkItemIdle()
+        {
+            m_ItemMachine.TryActivateState<PlayerIdleItemState>();
+        }
+
+        public void MarkItemIdle()
+        {
+            m_ItemMachine.ForceActivateState<PlayerIdleItemState>();
         }
     }
 }

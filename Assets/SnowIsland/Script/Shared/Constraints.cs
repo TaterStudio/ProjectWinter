@@ -21,6 +21,7 @@ namespace TaterGame.SnowIsland.Shared
             public const string Crouch = "Crouch";
             public const string Interact = "Interact";
             public const string Aim = "Aim";
+            public const string FakeDead = "FakeDead";
         }
     }
 }

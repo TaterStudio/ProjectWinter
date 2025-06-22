@@ -8,8 +8,15 @@ namespace TaterGame.SnowIsland
     [DisallowMultipleComponent]
     public class PlayerNormalLocomotionState: PlayerBaseLocomotionState
     {
-        private PlayerInputData m_InputData;
+        private PlayerStateMachine m_MachineRoot;
+        private PlayerAnimation m_PlayerAnimation;
 
+        protected override void Awake()
+        {
+            base.Awake();
+            m_PlayerAnimation = GetComponentInParent<PlayerAnimation>();
+            m_MachineRoot = GetComponentInParent<PlayerStateMachine>();
+        }
         
         protected override PlayerLocomotionState GetLocomotionState()
         {
@@ -18,24 +25,37 @@ namespace TaterGame.SnowIsland
 
         protected override void OnFixedUpdate()
         {
-            if (GetInput(out m_InputData))
+            base.OnFixedUpdate();
+            bool fakeDeath = m_InputData.NetworkButtons.IsSet(PlayerInputButton.FakeDead);
+
+            if (fakeDeath)
             {
-                bool isRun = m_InputData.NetworkButtons.IsSet(PlayerInputButton.Run);
-                bool canRun = PlayerState.PlayerStatusData.Food > 0;
-                if (isRun && canRun)
-                {
-                    PlayerState.IsRun = true;
-                }
-                else
-                {
-                    PlayerState.IsRun = false;
-                }
-                PlayerState.MoveDir = m_InputData.MoveDirection;
+                Machine.TryActivateState<PlayerFakeDeadLocomotionState>();
+                return;
+            }
+            
+            bool isRun = m_InputData.NetworkButtons.IsSet(PlayerInputButton.Run);
+            bool canRun = PlayerState.PlayerStatusData.Food > 0;
+            if (isRun && canRun)
+            {
+                PlayerState.IsRun = true;
             }
             else
             {
-                PlayerState.MoveDir = Vector3.zero;
+                PlayerState.IsRun = false;
             }
+            
+        }
+
+        protected override void OnEnterState()
+        {
+            base.OnEnterState();
+            m_PlayerAnimation.RPC_PlayMove();
+        }
+
+        protected override void OnExitState()
+        {
+            m_MachineRoot.MarkItemIdle();
         }
     }
 }

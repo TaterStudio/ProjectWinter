@@ -10,13 +10,14 @@ namespace TaterGame.SnowIsland
         private PlayerIdleItemState m_PlayerIdleItemState;
         public float Duration { get; set; }
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             m_PlayerAnimation = GetComponentInParent<PlayerAnimation>();
-            m_PlayerIdleItemState = GetComponent<PlayerIdleItemState>();
+            m_PlayerIdleItemState = GetStateComponent<PlayerIdleItemState>();
         }
 
-        protected override PlayerItemState GetLocomotionState()
+        protected override PlayerItemState GetItemState()
         {
             return PlayerItemState.Attack;
         }

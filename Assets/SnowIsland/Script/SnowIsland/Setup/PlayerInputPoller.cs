@@ -37,17 +37,22 @@ namespace TaterGame.SnowIsland
         {
             PlayerInputData playerInputData = new PlayerInputData();
 
-            var moveDir = m_PlayerInput.actions[Constraints.Input.Move].ReadValue<Vector2>();
-            playerInputData.MoveDirection = moveDir;
-            
+            //按钮必须按照0123的顺序排序            
             bool isRun = m_PlayerInput.actions[Constraints.Input.Sprint].IsPressed();
             playerInputData.NetworkButtons.Set(PlayerInputButton.Run, isRun);
             
-            
+            bool isFakeDead = m_PlayerInput.actions[Constraints.Input.FakeDead].IsPressed();
+            playerInputData.NetworkButtons.Set(PlayerInputButton.FakeDead, isFakeDead);
+
             bool isUse = m_PlayerInput.actions[Constraints.Input.Attack].IsPressed();
             playerInputData.NetworkButtons.Set(PlayerInputButton.Use, isUse);
             
+            var moveDir = m_PlayerInput.actions[Constraints.Input.Move].ReadValue<Vector2>();
+            playerInputData.MoveDirection = moveDir;
+            
             input.Set(playerInputData);
+            
+            
         }
 
         #region 未使用的

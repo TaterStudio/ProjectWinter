@@ -5,7 +5,7 @@ namespace TaterGame.SnowIsland
     [DisallowMultipleComponent]
     public class PlayerShootItemState: PlayerBaseItemState
     {
-        protected override PlayerItemState GetLocomotionState()
+        protected override PlayerItemState GetItemState()
         {
             return PlayerItemState.Shoot;
         }

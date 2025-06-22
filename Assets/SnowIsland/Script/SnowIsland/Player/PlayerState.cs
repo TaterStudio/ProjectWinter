@@ -8,15 +8,12 @@ namespace TaterGame.SnowIsland
     [DisallowMultipleComponent]
     public class PlayerState: NetworkBehaviour
     {
-        [Networked]
+        [field: SerializeField]
         public PlayerItemState ItemState { get; set; }
-        [Networked]
+        [field: SerializeField]
         public PlayerLocomotionState LocomotionState { get; set; }
 
-        [Networked(Default = nameof(m_DefaultPlayerStatusData) )]
-        public PlayerStatusData PlayerStatusData { get; set; }
-        
-        private PlayerStatusData m_DefaultPlayerStatusData = new PlayerStatusData
+        public PlayerStatusData PlayerStatusData { get; set; } = new PlayerStatusData
         {
             Health = 1000,
             HealthMax = 1000,
@@ -25,7 +22,6 @@ namespace TaterGame.SnowIsland
             Food = 200,
             FoodMax = 200
         }; 
-
         
         /// <summary>
         /// 是否正在跑步，如果是，则用2点饱食度换1点温暖度
@@ -38,7 +34,7 @@ namespace TaterGame.SnowIsland
 
         public bool CanMove()
         {
-            return LocomotionState is not (PlayerLocomotionState.Interact);
+            return LocomotionState is not (PlayerLocomotionState.Interact or PlayerLocomotionState.FakeDead);
         }
 
         public bool CanInteract()
@@ -81,6 +77,11 @@ namespace TaterGame.SnowIsland
         /// 只能移动，无法做任何其他操作
         /// </summary>
         Incap,
+        
+        /// <summary>
+        /// 假死状态
+        /// </summary>
+        FakeDead,
         
         /// <summary>
         /// 死亡状态 

@@ -75,7 +75,7 @@ namespace TaterGame.SnowIsland
             var onAtkEnd = Observable.Merge(
                 Observable.Timer(TimeSpan.FromSeconds(animTime)).Select(x=>Unit.Default),
                 m_OnExitAtk.AsObservable());
-            onAtkEnd.Subscribe(x => { PlayMovement(); });
+            onAtkEnd.Subscribe(x => { PlayMovement(); }).AddTo(this);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -88,6 +88,29 @@ namespace TaterGame.SnowIsland
         public void RPC_ExitAtkAnimRpc()
         {
             m_OnExitAtk.OnNext(Unit.Default);
+        }
+
+        [Rpc(sources: RpcSources.InputAuthority,targets: RpcTargets.All)]
+        public void RPC_PlayMove()
+        {
+            PlayMovement();
+        }
+        
+        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+        public void RPC_FakeDead()
+        {
+            m_AnimancerComponent.Play(m_Death);
+        }
+        
+        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+        public void RPC_Revive()
+        {
+            m_AnimancerComponent.Play(m_Revive);
+        }
+
+        public float CurrentAnimationDuration(int i)
+        {
+            return m_AnimancerComponent.Layers[i].CurrentState.Duration;
         }
     }
 }
