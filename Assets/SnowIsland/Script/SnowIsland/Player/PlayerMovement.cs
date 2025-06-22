@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace TaterGame.SnowIsland
 {
+    [DisallowMultipleComponent]
     public class PlayerMovement: NetworkBehaviour
     { 
         [Networked,OnChangedRender(nameof(InvokeOnVelocityChange))]
@@ -49,13 +50,8 @@ namespace TaterGame.SnowIsland
             int finalSpeed = m_WalkSpeed;
             if (CanRun())
             {
-                finalSpeed = m_RunSpeed;
-                m_PlayerState.IsRun = true;
-            }
-            else
-            {
-                m_PlayerState.IsRun = false;
-            }
+                finalSpeed = m_RunSpeed; 
+            } 
             var direction = m_InputData.MoveDirection;
             float actualSpeed = (float)finalSpeed / Constraints.Character.SpeedScale;
             Vector3 deltaMove = new Vector3(direction.x,0,direction.y)* actualSpeed * Runner.DeltaTime;
@@ -84,7 +80,7 @@ namespace TaterGame.SnowIsland
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private bool CanRun()
         {
-            return m_InputData.NetworkButtons.IsSet(PlayerInputButton.Run) && m_PlayerState.CanRun();
+            return m_PlayerState.IsRun;
         }
     }
 }

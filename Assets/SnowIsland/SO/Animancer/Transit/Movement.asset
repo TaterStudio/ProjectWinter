@@ -20,7 +20,7 @@ MonoBehaviour:
     - rid: 7047191636283752522
       type: {class: LinearMixerTransition, ns: Animancer, asm: Kybernetik.Animancer}
       data:
-        _FadeDuration: 0.25
+        _FadeDuration: 0
         _Speed: 1
         _Events:
           _NormalizedTimes: []

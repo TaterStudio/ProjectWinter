@@ -1,9 +1,11 @@
 using System;
 using Fusion;
 using TaterGame.SnowIsland.Shared;
+using UnityEngine;
 
 namespace TaterGame.SnowIsland
 {
+    [DisallowMultipleComponent]
     public class PlayerState: NetworkBehaviour
     {
         [Networked]
@@ -11,23 +13,19 @@ namespace TaterGame.SnowIsland
         [Networked]
         public PlayerLocomotionState LocomotionState { get; set; }
 
-        [Networked]
+        [Networked(Default = nameof(m_DefaultPlayerStatusData) )]
         public PlayerStatusData PlayerStatusData { get; set; }
         
-        [Networked]
-        public RadioType RadioType { get; set; }
-        [Networked]
-        public ItemInfo InvSlot1 { get; set; }
-        [Networked]
-        public ItemInfo InvSlot2 { get; set; }
-        [Networked]
-        public ItemInfo InvSlot3 { get; set; }
-        [Networked]
-        public ItemInfo InvSlot4 { get; set; }
-        [Networked]
-        public ItemInfo InvSlot5 { get; set; }
-        [Networked]
-        public bool InvSlot5Unlocked { get; set; }
+        private PlayerStatusData m_DefaultPlayerStatusData = new PlayerStatusData
+        {
+            Health = 1000,
+            HealthMax = 1000,
+            Warmth = 200,
+            WarmthMax = 200,
+            Food = 200,
+            FoodMax = 200
+        }; 
+
         
         /// <summary>
         /// 是否正在跑步，如果是，则用2点饱食度换1点温暖度
@@ -35,6 +33,8 @@ namespace TaterGame.SnowIsland
         /// </summary>
         [Networked]
         public bool IsRun { get; set; }
+
+        public Vector2 MoveDir { get; set; }
 
         public bool CanMove()
         {
@@ -44,21 +44,6 @@ namespace TaterGame.SnowIsland
         public bool CanInteract()
         {
             return (LocomotionState is PlayerLocomotionState.Normal) && (ItemState is PlayerItemState.Idle);
-        }
-
-        public bool CanRun()
-        {
-            if (LocomotionState is PlayerLocomotionState.Normal)
-            {
-                return PlayerStatusData.Food > 0;
-            }
-
-            if (LocomotionState is PlayerLocomotionState.Ghost)
-            {
-                return true;
-            }
-
-            return false;
         }
 
         public bool CanAttack()
@@ -75,8 +60,12 @@ namespace TaterGame.SnowIsland
     {
         Idle,
         Aim,
+        //使用，可以中途暂停
         Use,
+        //无法暂停
         Shoot,
+        //使用，无法暂停
+        Attack,
     }
 
     public enum PlayerLocomotionState
@@ -109,12 +98,4 @@ namespace TaterGame.SnowIsland
         Hold,
     }
     
-    [Serializable]
-    public struct ItemInfo: INetworkStruct
-    {
-        public int ItemId;
-        public int Amount;
-        public int Metadata;
-        public int Skin;
-    }
 }

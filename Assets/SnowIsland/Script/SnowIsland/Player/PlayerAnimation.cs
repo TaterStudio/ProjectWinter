@@ -1,11 +1,14 @@
 using System;
+using System.Runtime.CompilerServices;
 using Animancer;
 using Sirenix.OdinInspector;
 using TaterGame.SnowIsland.Shared;
+using UniRx;
 using UnityEngine;
 
 namespace TaterGame.SnowIsland
 {
+    [DisallowMultipleComponent]
     public class PlayerAnimation: MonoBehaviour
     {
         [SerializeField]
@@ -37,6 +40,8 @@ namespace TaterGame.SnowIsland
         /// </summary>
         [ShowInInspector,ReadOnly]
         private int m_AtkIndex;
+
+        private Subject<Unit> m_OnExitAtk = new();
         
         private void Awake()
         {
@@ -55,17 +60,26 @@ namespace TaterGame.SnowIsland
 
         private void Start()
         {
+            PlayMovement();
+        }
+
+        public void PlayAtk()
+        {
+            m_AnimancerComponent.Parameters.SetValue("AtkIndex",(float)m_AtkIndex);
+            m_AnimancerComponent.Play(m_Atk);
+            m_AtkIndex++;
+            m_AtkIndex %= 3;
+            float animTime = m_AnimancerComponent.Layers[0].CurrentState.Duration;
+            var onAtkEnd = Observable.Merge(
+                Observable.Timer(TimeSpan.FromSeconds(animTime)).Select(x=>Unit.Default),
+                m_OnExitAtk.AsObservable());
+            onAtkEnd.Subscribe(x => { PlayMovement(); });
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void PlayMovement()
+        {
             m_AnimancerComponent.Play(m_Movement);
-        }
-
-        public void Enable()
-        {
-            enabled = true;
-        }
-
-        public void Disable()
-        {
-            enabled = false;
         }
     }
 }

@@ -4,16 +4,16 @@ namespace TaterGame.SnowIsland
 {
     public abstract class PlayerBaseLocomotionState: StateBehaviour
     {
-        private PlayerState m_PlayerState;
+        protected PlayerState PlayerState { get; private set; }
 
         private void Awake()
         {
-            m_PlayerState = GetComponentInParent<PlayerState>();
+            PlayerState = GetComponentInParent<PlayerState>();
         }
 
         protected override void OnEnterState()
         {
-            m_PlayerState.LocomotionState = GetLocomotionState();
+            PlayerState.LocomotionState = GetLocomotionState();
         }
 
         protected abstract PlayerLocomotionState GetLocomotionState();

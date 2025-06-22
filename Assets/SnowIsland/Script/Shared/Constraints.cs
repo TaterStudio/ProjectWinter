@@ -15,7 +15,7 @@ namespace TaterGame.SnowIsland.Shared
         {
             public const string Move = "Move";
             public const string Jump = "Jump";
-            public const string Fire = "Fire";
+            public const string Attack = "Attack";
             public const string Look = "Look";
             public const string Sprint = "Sprint";
             public const string Crouch = "Crouch";

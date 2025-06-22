@@ -43,6 +43,10 @@ namespace TaterGame.SnowIsland
             bool isRun = m_PlayerInput.actions[Constraints.Input.Sprint].IsPressed();
             playerInputData.NetworkButtons.Set(PlayerInputButton.Run, isRun);
             
+            
+            bool isUse = m_PlayerInput.actions[Constraints.Input.Attack].IsPressed();
+            playerInputData.NetworkButtons.Set(PlayerInputButton.Use, isUse);
+            
             input.Set(playerInputData);
         }
 

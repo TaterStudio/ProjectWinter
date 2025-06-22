@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace TaterGame.SnowIsland
 {
+    [DisallowMultipleComponent]
     public class PlayerCommand: MonoBehaviour
     {
         [SerializeField]

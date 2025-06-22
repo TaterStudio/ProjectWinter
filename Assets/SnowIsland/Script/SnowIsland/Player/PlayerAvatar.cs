@@ -7,6 +7,7 @@ namespace TaterGame.SnowIsland
     /// <summary>
     /// 负责自定义玩家的模型而不是动画
     /// </summary>
+    [DisallowMultipleComponent]
     public class PlayerAvatar: MonoBehaviour
     {
         [ShowInInspector]

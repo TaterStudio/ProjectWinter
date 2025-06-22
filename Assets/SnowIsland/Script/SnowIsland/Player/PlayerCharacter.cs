@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace TaterGame.SnowIsland
 {
+    [DisallowMultipleComponent]
     public class PlayerCharacter: NetworkBehaviour
     {
         public GameObject HeadPivot => m_HeadPivot;

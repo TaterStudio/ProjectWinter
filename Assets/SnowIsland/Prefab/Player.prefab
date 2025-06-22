@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 3762384259721577377}
   - component: {fileID: 4594107424104223574}
   - component: {fileID: 8505807117985632316}
+  - component: {fileID: 6629317086515936490}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -164,6 +165,7 @@ MonoBehaviour:
   - {fileID: 3762384259721577377}
   - {fileID: 4594107424104223574}
   - {fileID: 8505807117985632316}
+  - {fileID: 6629317086515936490}
   - {fileID: 1157991123165495416}
   - {fileID: 7473837402279198257}
   - {fileID: 3320477292686890691}
@@ -174,6 +176,7 @@ MonoBehaviour:
   - {fileID: 6726423427321445449}
   - {fileID: 4771047763287731014}
   - {fileID: 3751529092438935402}
+  - {fileID: 7069336202319980113}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &3992722445763718414
 MonoBehaviour:
@@ -304,40 +307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ItemState: 0
   _LocomotionState: 0
-  _PlayerStatusData:
-    Health: 0
-    HealthMax: 0
-    Warmth: 0
-    WarmthMax: 0
-    Food: 0
-    FoodMax: 0
-  _RadioType: 0
-  _InvSlot1:
-    ItemId: 0
-    Amount: 0
-    Metadata: 0
-    Skin: 0
-  _InvSlot2:
-    ItemId: 0
-    Amount: 0
-    Metadata: 0
-    Skin: 0
-  _InvSlot3:
-    ItemId: 0
-    Amount: 0
-    Metadata: 0
-    Skin: 0
-  _InvSlot4:
-    ItemId: 0
-    Amount: 0
-    Metadata: 0
-    Skin: 0
-  _InvSlot5:
-    ItemId: 0
-    Amount: 0
-    Metadata: 0
-    Skin: 0
-  _InvSlot5Unlocked: 0
   _IsRun: 0
 --- !u!114 &4594107424104223574
 MonoBehaviour:
@@ -366,6 +335,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LocomotionStateRoot: {fileID: 1628214432431628808}
   m_ItemStateRoot: {fileID: 1485709531143202275}
+--- !u!114 &6629317086515936490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574990111127849182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e23bed6fa0141c2ad7c48817de70b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _RadioType: 0
+  _InvSlot1:
+    ItemId: 0
+    Amount: 0
+    Metadata: 0
+    Skin: 0
+  _InvSlot2:
+    ItemId: 0
+    Amount: 0
+    Metadata: 0
+    Skin: 0
+  _InvSlot3:
+    ItemId: 0
+    Amount: 0
+    Metadata: 0
+    Skin: 0
+  _InvSlot4:
+    ItemId: 0
+    Amount: 0
+    Metadata: 0
+    Skin: 0
+  _InvSlot5:
+    ItemId: 0
+    Amount: 0
+    Metadata: 0
+    Skin: 0
+  _InvSlot5Unlocked:
+    _value: 0
+  _InventorySlotIndex: 0
 --- !u!1 &616841401432358919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,6 +1140,7 @@ GameObject:
   - component: {fileID: 6726423427321445449}
   - component: {fileID: 4771047763287731014}
   - component: {fileID: 3751529092438935402}
+  - component: {fileID: 7069336202319980113}
   m_Layer: 6
   m_Name: ItemState
   m_TagString: Untagged
@@ -1204,6 +1215,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 377232ffa03d48ecbdd5c99052a0b6c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _priority: 0
+  _checkPriorityOnExit: 1
+--- !u!114 &7069336202319980113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485709531143202275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 143eb3c19dce42558c8a9d345e9187d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _priority: 0

@@ -8,9 +8,12 @@ namespace TaterGame.SnowIsland.Shared
     public class ItemService: IInitializable
     {
         private Dictionary<string, ItemSO> m_ItemSos;
+        private Dictionary<int, ItemSO> m_HashItemSos;
         public void Initialize()
         {
-            m_ItemSos = Resources.LoadAll<ItemSO>("Item/Melee").ToDictionary(x=>x.Id);
+            var loadAll = Resources.LoadAll<ItemSO>("Item/Melee");
+            m_ItemSos = loadAll.ToDictionary(x=>x.Id);
+            m_HashItemSos = loadAll.ToDictionary(x => x.Id.GetHashCode());
         }
 
         public bool TryGetItem(string key, out ItemSO so)
@@ -25,6 +28,15 @@ namespace TaterGame.SnowIsland.Shared
                 return GetFist();
             }   
             return m_ItemSos.GetValueOrDefault(key);
+        }        
+        
+        public ItemSO GetItem(int key)
+        {
+            if (key == 0)
+            {
+                return GetFist();
+            }   
+            return m_HashItemSos.GetValueOrDefault(key);
         }
 
         public ItemSO GetFist()
