@@ -23,6 +23,7 @@ namespace TaterGame.SnowIsland
         {
             return PlayerItemState.Idle;
         }
+        
 
         protected override void OnFixedUpdate()
         {

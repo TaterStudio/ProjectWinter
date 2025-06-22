@@ -1,3 +1,4 @@
+using UniRx;
 using UnityEngine;
 
 namespace TaterGame.SnowIsland
@@ -22,7 +23,12 @@ namespace TaterGame.SnowIsland
 
         protected override void OnEnterState()
         {
-            m_PlayerAnimation.PlayAtk();
+            m_PlayerAnimation.RPC_PlayAtkRpc();
+        }
+
+        protected override void OnExitState()
+        {
+            m_PlayerAnimation.RPC_ExitAtkAnimRpc();
         }
 
         protected override void OnFixedUpdate()

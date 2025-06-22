@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.CompilerServices;
 using Animancer;
+using Fusion;
 using Sirenix.OdinInspector;
 using TaterGame.SnowIsland.Shared;
 using UniRx;
@@ -9,7 +10,7 @@ using UnityEngine;
 namespace TaterGame.SnowIsland
 {
     [DisallowMultipleComponent]
-    public class PlayerAnimation: MonoBehaviour
+    public class PlayerAnimation: NetworkBehaviour
     {
         [SerializeField]
         private TransitionAsset m_Dash;
@@ -38,7 +39,7 @@ namespace TaterGame.SnowIsland
         /// <summary>
         /// 攻击有三种，显示具体攻击是哪一种
         /// </summary>
-        [ShowInInspector,ReadOnly]
+        [ShowInInspector,Sirenix.OdinInspector.ReadOnly]
         private int m_AtkIndex;
 
         private Subject<Unit> m_OnExitAtk = new();
@@ -63,7 +64,8 @@ namespace TaterGame.SnowIsland
             PlayMovement();
         }
 
-        public void PlayAtk()
+        [Rpc(sources: RpcSources.All, targets: RpcTargets.All)]
+        public void RPC_PlayAtkRpc()
         {
             m_AnimancerComponent.Parameters.SetValue("AtkIndex",(float)m_AtkIndex);
             m_AnimancerComponent.Play(m_Atk);
@@ -80,6 +82,12 @@ namespace TaterGame.SnowIsland
         private void PlayMovement()
         {
             m_AnimancerComponent.Play(m_Movement);
+        }
+
+        [Rpc(RpcSources.All, RpcTargets.All)]
+        public void RPC_ExitAtkAnimRpc()
+        {
+            m_OnExitAtk.OnNext(Unit.Default);
         }
     }
 }
