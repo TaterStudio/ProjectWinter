@@ -6,6 +6,11 @@ namespace TaterGame.SnowIsland.Shared
         {
             public const int SpeedScale = 100;
         }
+        
+        public static class Item
+        {
+            public const string Fist = "Fist";
+        }
         public static class Input
         {
             public const string Move = "Move";

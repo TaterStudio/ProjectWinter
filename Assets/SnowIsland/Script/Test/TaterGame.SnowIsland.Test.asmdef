@@ -1,10 +1,10 @@
 {
-    "name": "TaterGame.SnowIsland.Test",
-    "rootNamespace": "TaterGame.SnowIsland.Test",
+    "name": "TaterGame.SnowIsland.GameTest",
+    "rootNamespace": "TaterGame.SnowIsland.GameTest",
     "references": [
         "GUID:a7576bc66c75ea948ae905dc1d282e34",
         "GUID:610fd45c6eeeca2498159ee7433cce1c",
-        ""
+        "GUID:27619889b8ba8c24980f49ee34dbb44a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

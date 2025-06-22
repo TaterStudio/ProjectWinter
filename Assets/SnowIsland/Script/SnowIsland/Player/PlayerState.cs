@@ -10,18 +10,10 @@ namespace TaterGame.SnowIsland
         public PlayerItemState ItemState { get; set; }
         [Networked]
         public PlayerLocomotionState LocomotionState { get; set; }
+
         [Networked]
-        public int Health { get; set; }
-        [Networked]
-        public int HealthMax { get; set; }
-        [Networked]
-        public int Warmth { get; set; }
-        [Networked]
-        public int WarmthMax { get; set; }
-        [Networked]
-        public int Food { get; set; }
-        [Networked]
-        public int FoodMax { get; set; }
+        public PlayerStatusData PlayerStatusData { get; set; }
+        
         [Networked]
         public RadioType RadioType { get; set; }
         [Networked]
@@ -36,6 +28,43 @@ namespace TaterGame.SnowIsland
         public ItemInfo InvSlot5 { get; set; }
         [Networked]
         public bool InvSlot5Unlocked { get; set; }
+        
+        /// <summary>
+        /// 是否正在跑步，如果是，则用2点饱食度换1点温暖度
+        /// 默认情况下温暖度是每秒-2，跑步状态下是每秒-1
+        /// </summary>
+        [Networked]
+        public bool IsRun { get; set; }
+
+        public bool CanMove()
+        {
+            return LocomotionState is not (PlayerLocomotionState.Interact);
+        }
+
+        public bool CanInteract()
+        {
+            return (LocomotionState is PlayerLocomotionState.Normal) && (ItemState is PlayerItemState.Idle);
+        }
+
+        public bool CanRun()
+        {
+            if (LocomotionState is PlayerLocomotionState.Normal)
+            {
+                return PlayerStatusData.Food > 0;
+            }
+
+            if (LocomotionState is PlayerLocomotionState.Ghost)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool CanAttack()
+        {
+            return (LocomotionState is PlayerLocomotionState.Normal) && (ItemState is PlayerItemState.Idle);
+        }
     }
 
     /// <summary>
@@ -45,9 +74,9 @@ namespace TaterGame.SnowIsland
     public enum PlayerItemState
     {
         Idle,
-        Run,
         Aim,
         Use,
+        Shoot,
     }
 
     public enum PlayerLocomotionState
@@ -68,6 +97,16 @@ namespace TaterGame.SnowIsland
         /// 死亡状态 
         /// </summary>
         Ghost,
+        
+        /// <summary>
+        /// 交互状态
+        /// </summary>
+        Interact,
+        
+        /// <summary>
+        /// 持有电池状态
+        /// </summary>
+        Hold,
     }
     
     [Serializable]

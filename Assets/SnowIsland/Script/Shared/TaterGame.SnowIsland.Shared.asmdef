@@ -3,7 +3,8 @@
     "rootNamespace": "TaterGame.SnowIsland.Shared",
     "references": [
         "GUID:560b04d1a97f54a4e82edc0cbbb69285",
-        "GUID:58d42c70423577947911995925414405"
+        "GUID:58d42c70423577947911995925414405",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

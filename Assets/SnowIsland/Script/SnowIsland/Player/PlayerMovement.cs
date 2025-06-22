@@ -21,10 +21,13 @@ namespace TaterGame.SnowIsland
 
         private PlayerInputData m_InputData;
 
+        private PlayerState m_PlayerState;
+
         private void Awake()
         {
             m_CharacterController = GetComponent<CharacterController>();
             m_PlayerAvatar = GetComponent<PlayerAvatar>();
+            m_PlayerState = GetComponent<PlayerState>();
         }
 
         private void Update()
@@ -33,6 +36,11 @@ namespace TaterGame.SnowIsland
 
         public override void FixedUpdateNetwork()
         {
+            if (!m_PlayerState.CanMove())
+            {
+                return;
+            }
+            
             if (!GetInput<PlayerInputData>(out m_InputData))
             {
                 return;
@@ -42,6 +50,11 @@ namespace TaterGame.SnowIsland
             if (CanRun())
             {
                 finalSpeed = m_RunSpeed;
+                m_PlayerState.IsRun = true;
+            }
+            else
+            {
+                m_PlayerState.IsRun = false;
             }
             var direction = m_InputData.MoveDirection;
             float actualSpeed = (float)finalSpeed / Constraints.Character.SpeedScale;
@@ -71,7 +84,7 @@ namespace TaterGame.SnowIsland
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private bool CanRun()
         {
-            return m_InputData.NetworkButtons.IsSet(PlayerInputButton.Run);
+            return m_InputData.NetworkButtons.IsSet(PlayerInputButton.Run) && m_PlayerState.CanRun();
         }
     }
 }
