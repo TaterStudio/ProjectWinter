@@ -20,11 +20,32 @@ namespace TaterGame.SnowIsland
         [SerializeField]
         private Transform m_Model;
 
-        public Action OnSpawned;
+        [SerializeField]
+        private Transform m_CorpseModel;
         
+        public Action OnSpawned;
+        private IngamePlayerSetting m_IngamePlayerSetting;
+
+        private void Awake()
+        {
+            m_IngamePlayerSetting = ApplicationScope.Resolve<IngamePlayerSetting>();
+        }
+
         public override void Spawned()
         {
             OnSpawned?.Invoke();
+        }
+
+        [Rpc(RpcSources.StateAuthority,RpcTargets.All)]
+        public void RPC_GhostMode()
+        {
+            var obj = Instantiate(m_CorpseModel,Model.transform.position,Model.transform.rotation);
+            obj.gameObject.SetActive(true);
+            gameObject.layer = LayerMask.NameToLayer(Constraints.Layer.PlayerGhostLayer);
+            foreach (var meshRenderer in Model.GetComponentsInChildren<MeshRenderer>())
+            {
+                meshRenderer.material = m_IngamePlayerSetting.GhostMaterial;
+            }
         }
     }
 }

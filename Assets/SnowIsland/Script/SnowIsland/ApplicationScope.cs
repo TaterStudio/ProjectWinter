@@ -9,7 +9,8 @@ namespace TaterGame.SnowIsland
     public class ApplicationScope: LifetimeScope
     {
         private static ApplicationScope s_Instance;
-        
+        [SerializeField]
+        public GamePlaySettingSO m_GameplaySettingSO;
         [SerializeField]
         private PlayerInput m_PlayerInput;
         protected override void Awake()
@@ -21,6 +22,7 @@ namespace TaterGame.SnowIsland
         protected override void Configure(IContainerBuilder builder)
         {
             base.Configure(builder);
+            builder.RegisterInstance(m_GameplaySettingSO.IngamePlayerSetting).AsSelf();
             builder.Register<EventCenter>(Lifetime.Singleton).AsSelf();
             builder.Register<ClientState>(Lifetime.Singleton).AsSelf();
             builder.RegisterEntryPoint<ItemService>().AsSelf();

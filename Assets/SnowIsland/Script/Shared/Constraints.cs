@@ -23,5 +23,10 @@ namespace TaterGame.SnowIsland.Shared
             public const string Aim = "Aim";
             public const string FakeDead = "FakeDead";
         }
+
+        public static class Layer
+        {
+            public const string PlayerGhostLayer = "PlayerGhost";
+        }
     }
 }

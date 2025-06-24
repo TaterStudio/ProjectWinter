@@ -16,7 +16,7 @@ namespace TaterGame.SnowIsland.Shared
         private Dictionary<MeshRenderer, Material> m_OriginMaterials = new();
         private Dictionary<MeshRenderer, Material> m_Materials;
         [SerializeField]
-        private float m_Duration = 0.25f;
+        private float m_Duration = 0.125f;
         [ShowInInspector,ReadOnly]
         private bool m_CanFlick = true;
 

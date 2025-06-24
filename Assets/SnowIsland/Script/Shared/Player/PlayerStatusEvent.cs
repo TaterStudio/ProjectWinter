@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace TaterGame.SnowIsland.Shared
 {
     /// <summary>
@@ -6,6 +8,7 @@ namespace TaterGame.SnowIsland.Shared
     /// </summary>
     public struct PlayerStatusEvent
     {
+        public GameObject Sender;
         public int CurrentValue;
         public int MaxValue;
     }

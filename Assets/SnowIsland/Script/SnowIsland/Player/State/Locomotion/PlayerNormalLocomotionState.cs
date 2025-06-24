@@ -37,7 +37,7 @@ namespace TaterGame.SnowIsland
             }
             
             bool isRun = m_InputData.NetworkButtons.IsSet(PlayerInputButton.Run);
-            bool canRun = m_PlayerStatus.PlayerStatusData.Food > 0;
+            bool canRun = m_PlayerStatus.Food > 0;
             if (isRun && canRun)
             {
                 PlayerState.IsRun = true;

@@ -49,6 +49,7 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+  m_GameplaySettingSO: {fileID: 11400000, guid: 972ca4bf092aa8047ba54a9bf37b064c, type: 2}
   m_PlayerInput: {fileID: 5822893560112627113}
 --- !u!114 &5822893560112627113
 MonoBehaviour:

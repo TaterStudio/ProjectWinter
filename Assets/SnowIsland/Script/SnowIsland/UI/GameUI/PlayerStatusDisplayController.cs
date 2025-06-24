@@ -1,4 +1,5 @@
 using System;
+using Fusion;
 using TaterGame.SnowIsland.Shared;
 using UniRx;
 using UnityEngine;
@@ -15,13 +16,22 @@ namespace TaterGame.SnowIsland
         private ProgressBar m_HealthBar;
         private ProgressBar m_WarmthBar;
         private ProgressBar m_FoodBar;
-
+        private GameObject m_PlayerObject;
         private EventCenter m_EventCenter;
+
         private void Awake()
         {
+            m_EventCenter = ApplicationScope.Resolve<EventCenter>();
+            m_EventCenter.PlayerHealthEvent.Subscribe(OnHealthChange).AddTo(this);
+            m_EventCenter.PlayerWarmthEvent.Subscribe(OnWarmthChange).AddTo(this);
+            m_EventCenter.PlayerFoodEvent.Subscribe(OnHungerChange).AddTo(this);
+            m_EventCenter.PlayerSpawnEvent.Subscribe((x) =>
+            {
+                m_PlayerObject = x.PlayerObject;
+            }).AddTo(this);
             SetupUI();
             return;
-            
+
             void SetupUI()
             {
                 m_Root = m_UIDocument.rootVisualElement;
@@ -33,6 +43,7 @@ namespace TaterGame.SnowIsland
                 {
                     Debug.LogError("HealthBar not found");
                 }
+
                 if (m_WarmthBar == null)
                 {
                     Debug.LogError("WarmthBar not found");
@@ -45,28 +56,32 @@ namespace TaterGame.SnowIsland
             }
         }
 
-        private void Start()
-        {
-            m_EventCenter = ApplicationScope.Resolve<EventCenter>();
-            m_EventCenter.PlayerHealthEvent.Subscribe(OnHealthChange).AddTo(this);
-            m_EventCenter.PlayerWarmthEvent.Subscribe(OnWarmthChange).AddTo(this);
-            m_EventCenter.PlayerFoodEvent.Subscribe(OnHungerChange).AddTo(this);
-        }
-
         private void OnHealthChange(PlayerStatusEvent e)
         {
+            if (e.Sender!=m_PlayerObject)
+            {
+                return;
+            }
             m_HealthBar.highValue = e.MaxValue;
             m_HealthBar.value = e.CurrentValue;
         }
 
         private void OnWarmthChange(PlayerStatusEvent e)
         {
+            if (e.Sender!=m_PlayerObject)
+            {
+                return;
+            }
             m_WarmthBar.highValue = e.MaxValue;
             m_WarmthBar.value = e.CurrentValue;
         }
 
         private void OnHungerChange(PlayerStatusEvent e)
         {
+            if (e.Sender!=m_PlayerObject)
+            {
+                return;
+            }
             m_FoodBar.highValue = e.MaxValue;
             m_FoodBar.value = e.CurrentValue;
         }

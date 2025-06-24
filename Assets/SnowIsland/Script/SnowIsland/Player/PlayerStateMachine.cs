@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Fusion;
 using Fusion.Addons.FSM;
-using TaterGame.SnowIsland;
+using Sirenix.OdinInspector;
+using TaterGame.SnowIsland.Shared;
+using UniRx;
 using UnityEngine;
 
 namespace TaterGame.SnowIsland
@@ -19,7 +21,14 @@ namespace TaterGame.SnowIsland
         public StateMachine<StateBehaviour> ItemMachine => m_ItemMachine;
         private StateMachine<StateBehaviour> m_LocomotionMachine;
         private StateMachine<StateBehaviour> m_ItemMachine;
-        
+        private EventCenter m_EventCenter;
+        private bool m_ShouldBecomeGhost = false;
+        private void Awake()
+        {
+            m_EventCenter = ApplicationScope.Resolve<EventCenter>();
+            m_EventCenter.PlayerHealthEvent.Subscribe(OnHealthChange);
+        }
+
         public void CollectStateMachines(List<IStateMachine> stateMachines)
         {
             StateBehaviour[] locomotionStates = m_LocomotionStateRoot.GetComponentsInChildren<StateBehaviour>();
@@ -42,5 +51,39 @@ namespace TaterGame.SnowIsland
         {
             m_ItemMachine.ForceActivateState<PlayerIdleItemState>();
         }
+
+        private void OnHealthChange(PlayerStatusEvent evt)
+        {
+            if (evt.Sender != gameObject)
+            {
+                return;
+            }
+            if (evt.CurrentValue <= 0)
+            {
+                m_ShouldBecomeGhost = true;
+            }
+        }
+
+        public override void FixedUpdateNetwork()
+        {
+            if (m_ShouldBecomeGhost)
+            {
+                m_ShouldBecomeGhost = false;
+                m_LocomotionMachine.TryActivateState<PlayerGhostLocomotionState>();
+            }
+        }
+
+#if UNITY_EDITOR
+
+        [Button]
+        public void GhostStateEditor()
+        {
+            if (!Application.isPlaying)
+            {
+                return;
+            }
+            m_ShouldBecomeGhost = true;
+        }
+#endif
     }
 }
