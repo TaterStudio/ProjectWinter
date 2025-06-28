@@ -29,5 +29,12 @@ namespace TaterGame.SnowIsland.Shared
         {
             get => m_AtkDamage;
         }
+
+        public void SetInitialData(float zOffset, float sphere, int damage)
+        {
+            m_AtkZOffset = zOffset;
+            m_AtkSphereRadius = sphere;
+            m_AtkDamage = damage;
+        }
     }
 }

@@ -58,5 +58,13 @@ namespace TaterGame.SnowIsland.Shared
         }
         
         public string Id => name;
+
+        public void SetInitialData(string name, string displayName, string description,ItemDataSO itemDataSo)
+        {
+            this.name = name;
+            m_DisplayName = displayName;
+            m_Description = description;
+            m_ItemDataSo = itemDataSo;
+        }
     }
 }

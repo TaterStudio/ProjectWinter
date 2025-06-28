@@ -1,0 +1,15 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/SnowIsland/Script/Editor/ItemCreator.uss?fileID=7433441132597879392&amp;guid=5b154afcf390c4f4bb3c61ba095bb526&amp;type=3#ItemCreator" />
+    <ui:VisualElement name="Header" style="flex-grow: 0; flex-direction: row;">
+        <ui:Label text="Path: " />
+        <ui:Label text="Assets/SnowIsland/Resources/Item" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Content" style="flex-grow: 1;">
+        <ui:DropdownField label="物品类型" name="Category" choices="食物,饮料,放置物,远程,投掷物,装备,近战,材料" />
+        <ui:TextField label="物品名字" value="铁" name="ItemName" />
+        <ui:Button text="生成" name="Invoke" style="margin-top: 20px;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Bottom" style="flex-grow: 0;">
+        <ui:Label text="当前路径：" name="Debug" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 889b618cc20e44249e38254c74c1f37f, type: 3}
-  m_Name: Fist
+  m_Name: "\u9759\u97F3\u67AA"
   m_EditorClassIdentifier: 
   m_ModelPrefab: {fileID: 0}
-  m_DisplayName: "\u62F3\u5934"
-  m_Description: "\u4E24\u624B\u7A7A\u7A7A"
-  m_Durability: 0
+  m_DisplayName: "\u7269\u54C1_\u540D\u5B57_\u9759\u97F3\u67AA"
+  m_Description: "\u7269\u54C1_\u4ECB\u7ECD_\u9759\u97F3\u67AA"
+  m_Durability: -1
   m_StackSize: 1
-  m_ItemDataSo: {fileID: 11400000, guid: 7369bc5028b96354e9971bc54db20682, type: 2}
+  m_ItemDataSo: {fileID: 11400000, guid: 93bc48d6802a0c14ead826b1d0af5364, type: 2}
