@@ -9,9 +9,11 @@ namespace TaterGame.SnowIsland.Shared
     {
         private Dictionary<string, ItemSO> m_ItemSos;
         private Dictionary<int, ItemSO> m_HashItemSos;
+        public IEnumerable<string> ItemKeys { get=>m_ItemSos.Keys;}
+
         public void Initialize()
         {
-            var loadAll = Resources.LoadAll<ItemSO>("Item/Melee");
+            var loadAll = Resources.LoadAll<ItemSO>("Item/");
             m_ItemSos = loadAll.ToDictionary(x=>x.Id);
             m_HashItemSos = loadAll.ToDictionary(x => x.Id.GetHashCode());
         }

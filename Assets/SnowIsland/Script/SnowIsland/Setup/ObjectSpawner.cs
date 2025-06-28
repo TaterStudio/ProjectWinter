@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TaterGame.SnowIsland
 {
-    public class PlayerSpawner: SimulationBehaviour, IPlayerJoined
+    public class ObjectSpawner: SimulationBehaviour, IPlayerJoined
     {
         public GameObject PlayerPrefab;
         private EventCenter m_EventCenter;
@@ -25,6 +25,7 @@ namespace TaterGame.SnowIsland
                 networkObject.AssignInputAuthority(Runner.LocalPlayer);
                 var obj = networkObject.gameObject;
                 m_ClientState.LocalPlayer = obj;
+                m_ClientState.LocalRunner = Runner;
                 if (obj.TryGetComponent(out PlayerCharacter playerCharacter))
                 {
                     m_EventCenter.PlayerSpawnEvent.OnNext(new PlayerSpawnEvent()
