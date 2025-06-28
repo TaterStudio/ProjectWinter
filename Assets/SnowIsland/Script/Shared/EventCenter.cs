@@ -16,5 +16,8 @@ namespace TaterGame.SnowIsland.Shared
         
         public Subject<PlayerStatusEvent> PlayerFoodEvent => m_PlayerFoodEvent;
         private Subject<PlayerStatusEvent> m_PlayerFoodEvent = new();
+
+        public Subject<string> Log2Console => m_Log2Console;
+        private Subject<string> m_Log2Console = new();
     }
 }

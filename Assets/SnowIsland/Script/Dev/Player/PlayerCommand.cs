@@ -14,8 +14,11 @@ namespace TaterGame.SnowIsland.Dev
         private GameEvent m_ToggleRagdollCommand;
 
         private PlayerAvatar m_PlayerAvatar;
+
+        private EventCenter m_EventCenter;
         private void Awake()
         {
+            m_EventCenter = ApplicationScope.Resolve<EventCenter>();
             m_PlayerAvatar = GetComponent<PlayerAvatar>();
             m_ToggleRagdollCommand.AddListener(ToggleRagdoll);
             m_ChangeAnimationCommand.AddListener(ChangeAnimation);
@@ -29,12 +32,13 @@ namespace TaterGame.SnowIsland.Dev
 
         private void ChangeAnimation(EventData<PlayerAnimationEventData> arg0)
         {
-            
+            m_EventCenter.Log2Console.OnNext("对不起，动画切换未完成");
         }
 
         private void ToggleRagdoll(EventData arg0)
         {
             m_PlayerAvatar.ToggleRagdoll();
+            m_EventCenter.Log2Console.OnNext("已切换Ragdoll模式！");
         }
     }
 }

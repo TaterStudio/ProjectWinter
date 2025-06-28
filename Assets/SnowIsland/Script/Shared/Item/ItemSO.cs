@@ -27,6 +27,9 @@ namespace TaterGame.SnowIsland.Shared
         [SerializeField]
         private ItemDataSO m_ItemDataSo;
 
+        [SerializeField]
+        private GameObject m_DropPrefab;
+
         public GameObject ModelPrefab
         {
             get { return m_ModelPrefab; }
@@ -56,7 +59,12 @@ namespace TaterGame.SnowIsland.Shared
         {
             get { return m_ItemDataSo; }
         }
-        
+
+        public GameObject DropPrefab
+        {
+            get { return m_DropPrefab; }
+        }
+
         public string Id => name;
 
         public void SetInitialData(string name, string displayName, string description,ItemDataSO itemDataSo)

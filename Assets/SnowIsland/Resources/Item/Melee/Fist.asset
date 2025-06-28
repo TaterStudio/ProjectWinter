@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 889b618cc20e44249e38254c74c1f37f, type: 3}
-  m_Name: "\u62F3\u5934"
+  m_Name: Fist
   m_EditorClassIdentifier: 
   m_ModelPrefab: {fileID: 0}
   m_DisplayName: "\u62F3\u5934"
