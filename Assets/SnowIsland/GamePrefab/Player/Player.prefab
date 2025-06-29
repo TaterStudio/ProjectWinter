@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 8505807117985632316}
   - component: {fileID: 6629317086515936490}
   - component: {fileID: 5488171651764580683}
+  - component: {fileID: 231740650797772866}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -213,6 +214,7 @@ MonoBehaviour:
   _Velocity: 0
   m_RunSpeed: 600
   m_WalkSpeed: 400
+  m_Gravity: -9.8
 --- !u!114 &246052532483501298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +244,8 @@ MonoBehaviour:
   m_Revive: {fileID: 11400000, guid: f09a0ab96c320774a9643ad85d767ad5, type: 2}
   m_Movement: {fileID: 11400000, guid: 604d996bd0cf030489d830f69a5296d1, type: 2}
   m_MovementAim: {fileID: 11400000, guid: ec55e88cf71b7a94082fdcef0db91fd1, type: 2}
+  m_Interact: {fileID: 11400000, guid: 9961cc1d0cfb75f4fb91786cfb268a66, type: 2}
+  m_Place: {fileID: 11400000, guid: 1c6df6f6f12ba68448760d52706bbb94, type: 2}
   m_Atk: {fileID: 11400000, guid: 9b694cffc4282594d8ada01b2738b18f, type: 2}
 --- !u!114 &3670958883164313841
 MonoBehaviour:
@@ -361,6 +365,18 @@ MonoBehaviour:
   m_ModelFlicker: {fileID: 3045703814269102922}
   IsDead: 0
   IsHeating: 0
+--- !u!114 &231740650797772866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574990111127849182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a1c8e975e0419397170da3b79cc208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &794157410542307638
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _priority: 0
   _checkPriorityOnExit: 1
+  m_InteractionState: {fileID: 2920259286393303181}
 --- !u!1 &3844140628893176619
 GameObject:
   m_ObjectHideFlags: 0

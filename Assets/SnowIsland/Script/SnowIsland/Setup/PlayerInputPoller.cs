@@ -49,6 +49,9 @@ namespace TaterGame.SnowIsland
             
             var moveDir = m_PlayerInput.actions[Constraints.Input.Move].ReadValue<Vector2>();
             playerInputData.MoveDirection = moveDir;
+
+            var interact = m_PlayerInput.actions[Constraints.Input.Interact].IsPressed();
+            playerInputData.NetworkButtons.Set(PlayerInputButton.Interact, interact);
             
             input.Set(playerInputData);
             

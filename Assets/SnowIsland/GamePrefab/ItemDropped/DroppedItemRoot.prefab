@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3591100770472582726}
   - component: {fileID: 1314365111754792008}
   - component: {fileID: 8620368391310907325}
+  - component: {fileID: 8048797586876421691}
+  - component: {fileID: 8634893572443617591}
   m_Layer: 10
   m_Name: DroppedItemRoot
   m_TagString: Untagged
@@ -56,6 +58,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 9184992231551662476}
   - {fileID: 8620368391310907325}
+  - {fileID: 8048797586876421691}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &9184992231551662476
 MonoBehaviour:
@@ -135,6 +138,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PickupTime: 3
+--- !u!114 &8048797586876421691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824125758803646573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b94d7ab8544cb29ee8523509ed3873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _IsOccupied: 0
+  InteractHudOffset: {x: 0, y: 2, z: 0}
+  Interaction:
+  - {fileID: 11400000, guid: 9f979e88b037441419dca34fe6148053, type: 2}
+  - {fileID: 11400000, guid: 05a06758f691f8049891ffe9708cdb42, type: 2}
+--- !u!65 &8634893572443617591
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824125758803646573}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7733921107282101435
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +292,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 65
+      scalar: 10
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1122,7 +1163,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 0.53846174
           inSlope: 0
           outSlope: 0
           tangentMode: 0

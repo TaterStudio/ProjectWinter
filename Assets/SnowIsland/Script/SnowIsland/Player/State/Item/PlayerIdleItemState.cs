@@ -19,6 +19,7 @@ namespace TaterGame.SnowIsland
             m_PlayerInventoryState = GetComponentInParent<PlayerInventoryState>();
         }
         
+        
         protected override PlayerItemState GetItemState()
         {
             return PlayerItemState.Idle;

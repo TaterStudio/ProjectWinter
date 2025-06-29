@@ -20,5 +20,5 @@ MonoBehaviour:
     HealthNaturalRecover: 5
     HealthNaturalRecoverThresholdIn100: 60
     HealthNaturalRecoverFoodGain: -1
-    TickFrequency: 5
+    TickFrequency: 1
     GhostMaterial: {fileID: 2100000, guid: a24e157c94d39c340b9ad1d9c62550fc, type: 2}

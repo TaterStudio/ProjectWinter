@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 3413923781219575727}
     m_Modifications:
     - target: {fileID: 123392731441517791, guid: 6015a2a12a0f86845a672fb593e5acb8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 123392731441517791, guid: 6015a2a12a0f86845a672fb593e5acb8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 123392731441517791, guid: 6015a2a12a0f86845a672fb593e5acb8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 123392731441517791, guid: 6015a2a12a0f86845a672fb593e5acb8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -112,7 +124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4824125758803646573, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
       propertyPath: m_Name
-      value: DroppedItemRoot Variant
+      value: "\u9504_\u6389\u843D"
       objectReference: {fileID: 0}
     - target: {fileID: 8952847128349218333, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
       propertyPath: SortKey

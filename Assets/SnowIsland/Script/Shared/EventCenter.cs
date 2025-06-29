@@ -19,5 +19,17 @@ namespace TaterGame.SnowIsland.Shared
 
         public Subject<string> Log2Console => m_Log2Console;
         private Subject<string> m_Log2Console = new();
+
+        public Subject<Interactable> OnPlayerEnterInteract => m_OnPlayerEnterInteract;
+        private Subject<Interactable> m_OnPlayerEnterInteract = new();
+
+        public Subject<Interactable> OnPlayerExitInteract => m_OnPlayerExitInteract;
+        private Subject<Interactable> m_OnPlayerExitInteract = new();
+
+        public Subject<Interactable> PlayerCurrentInteractable => m_PlayerCurrentInteractable;
+        private Subject<Interactable> m_PlayerCurrentInteractable = new();
+
+        public Subject<PlayerEndInteractEvent> PlayerInteractSuccess => m_PlayerInteractSuccess;
+        private Subject<PlayerEndInteractEvent> m_PlayerInteractSuccess = new();
     }
 }

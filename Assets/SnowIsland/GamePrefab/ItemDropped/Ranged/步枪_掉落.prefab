@@ -112,7 +112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4824125758803646573, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
       propertyPath: m_Name
-      value: DroppedItemRoot Variant
+      value: "\u6B65\u67AA_\u6389\u843D"
       objectReference: {fileID: 0}
     - target: {fileID: 7724235325822217711, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
       propertyPath: 'Guid.RawGuidValue.Array.data[0]'
@@ -126,6 +126,14 @@ PrefabInstance:
       propertyPath: SortKey
       value: 2010563361
       objectReference: {fileID: 0}
+    - target: {fileID: 8952847128349218333, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
+      propertyPath: NetworkedBehaviours.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952847128349218333, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1071132376599633541}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -134,6 +142,17 @@ PrefabInstance:
       addedObject: {fileID: 4364786148744067061}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
+--- !u!114 &1071132376599633541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8048797586876421691, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
+  m_PrefabInstance: {fileID: 7020689582520682686}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b94d7ab8544cb29ee8523509ed3873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8214061511825660451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1193535912244269725, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}

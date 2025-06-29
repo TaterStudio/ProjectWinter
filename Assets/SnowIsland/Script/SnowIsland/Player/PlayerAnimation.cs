@@ -26,6 +26,12 @@ namespace TaterGame.SnowIsland
 
         [SerializeField]
         private TransitionAsset m_MovementAim;
+        
+        [SerializeField]
+        private TransitionAsset m_Interact;
+       
+        [SerializeField]
+        private TransitionAsset m_Place;
 
         [SerializeField]
         private TransitionAsset m_Atk;
@@ -42,7 +48,11 @@ namespace TaterGame.SnowIsland
         [ShowInInspector,Sirenix.OdinInspector.ReadOnly]
         private int m_AtkIndex;
 
+        public IObservable<Unit> OnExitAtk => m_OnExitAtk;
         private Subject<Unit> m_OnExitAtk = new();
+
+        public IObservable<Unit> OnExitInteract => m_OnExitInteract;
+        private Subject<Unit> m_OnExitInteract = new();
         
         private void Awake()
         {
@@ -71,23 +81,35 @@ namespace TaterGame.SnowIsland
             m_AnimancerComponent.Play(m_Atk);
             m_AtkIndex++;
             m_AtkIndex %= 3;
-            float animTime = m_AnimancerComponent.Layers[0].CurrentState.Duration;
-            var onAtkEnd = Observable.Merge(
-                Observable.Timer(TimeSpan.FromSeconds(animTime)).Select(x=>Unit.Default),
-                m_OnExitAtk.AsObservable());
-            onAtkEnd.Subscribe(x => { PlayMovement(); }).AddTo(this);
+            SendEventAfterAnimEnd(m_OnExitAtk);
         }
 
+        private void SendEventAfterAnimEnd(Subject<Unit> endEvent)
+        {
+            float animTime = m_AnimancerComponent.Layers[0].CurrentState.Duration;
+            var onAtkEnd = Observable.Timer(TimeSpan.FromSeconds(animTime));
+            onAtkEnd.Subscribe(_ => endEvent.OnNext(Unit.Default));
+        }
+
+        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+        public void RPC_Interact(int animationId)
+        {
+            m_AnimancerComponent.Parameters.SetValue("InteractIndex",(float)animationId);
+            m_AnimancerComponent.Play(m_Interact);
+            SendEventAfterAnimEnd(m_OnExitInteract);
+        }
+        
+        
+        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+        public void RPC_Place(int animationId)
+        {
+            m_AnimancerComponent.Parameters.SetValue("PlaceIndex",(float)animationId);
+            m_AnimancerComponent.Play(m_Place);
+        }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void PlayMovement()
         {
             m_AnimancerComponent.Play(m_Movement);
-        }
-
-        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
-        public void RPC_ExitAtkAnimRpc()
-        {
-            m_OnExitAtk.OnNext(Unit.Default);
         }
 
         [Rpc(sources: RpcSources.InputAuthority,targets: RpcTargets.All)]
@@ -111,6 +133,12 @@ namespace TaterGame.SnowIsland
         public float CurrentAnimationDuration(int i)
         {
             return m_AnimancerComponent.Layers[i].CurrentState.Duration;
+        }
+
+        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+        public void RPC_SetDefault()
+        {
+            PlayMovement();
         }
     }
 }

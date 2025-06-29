@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - IS_SNOW
   - USE_AL
   - USE_FOG
   - USE_LS
@@ -267,7 +268,7 @@ Material:
     - _DisplacementColorMult: 0.9
     - _DisplacementOffset: 0.1
     - _DisplacementShadowMult: 0.56
-    - _DisplacementStrength: 0.1
+    - _DisplacementStrength: 0.05
     - _DstBlend: 0
     - _EffectDisplacementStrength: 0.5
     - _Emission: 0.25
@@ -286,7 +287,7 @@ Material:
     - _HeightScale: 0.33
     - _ISADD: 0
     - _ISICE: 0
-    - _ISSNOW: 0
+    - _ISSNOW: 1
     - _IST: 0
     - _ISUNLIT: 0
     - _IceScale: 1
