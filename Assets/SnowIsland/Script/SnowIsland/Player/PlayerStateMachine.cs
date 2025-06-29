@@ -54,7 +54,7 @@ namespace TaterGame.SnowIsland
 
         private void OnHealthChange(PlayerStatusEvent evt)
         {
-            if (evt.Sender != gameObject)
+            if (evt.Sender == null || evt.Sender != gameObject)
             {
                 return;
             }

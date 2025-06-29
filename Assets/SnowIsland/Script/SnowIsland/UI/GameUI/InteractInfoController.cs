@@ -18,6 +18,7 @@ namespace TaterGame.SnowIsland
         private VisualElement m_LastInteractable;
         private EventCenter m_EventCenter;
         private Interactable m_Interactable;
+        private ClientState m_ClientState;
 
         private void Awake()
         {
@@ -26,10 +27,24 @@ namespace TaterGame.SnowIsland
 
         private void Start()
         {
+            m_ClientState = ApplicationScope.Resolve<ClientState>();
             m_EventCenter = ApplicationScope.Resolve<EventCenter>();
             m_EventCenter.PlayerCurrentInteractable.Subscribe(OnCurrentChange).AddTo(this);
+            m_EventCenter.OnInteractableDestroyed.Subscribe(OnInteractableDestroyed).AddTo(this);
         }
 
+        private void OnInteractableDestroyed(GameObject interactable)
+        {
+            if (m_Interactable == null || m_Interactable.gameObject == null)
+            {
+                return;
+            }
+            if (m_Interactable.gameObject == interactable && m_LastInteractable!=null)
+            {
+                m_LastInteractable.RemoveFromHierarchy();
+            }
+        }
+        
         private void OnCurrentChange(Interactable interactable)
         {
             if (m_LastInteractable != null)
@@ -71,9 +86,11 @@ namespace TaterGame.SnowIsland
             foreach (var interactItemSo in interactable.Interaction)
             {
                 var item = new InteractItem(m_InteractItem);
+                var (can, failReason) = interactItemSo.InvokeCanInteract(m_ClientState.LocalPlayer, interactable.gameObject);
                 item.SetIcon(interactItemSo.Icon);
-                item.SetLabel(interactItemSo.DisplayName);
+                item.SetLabel(can?interactItemSo.DisplayName:failReason);
                 item.AddTo(itemRoot);
+                item.Root.style.color = can ? Color.white : Color.gray;
             }
             return templateContainer;
         }
@@ -83,7 +100,7 @@ namespace TaterGame.SnowIsland
             private Label m_Label;
             private VisualElement m_Icon;
             private VisualElement m_ItemElement;
-
+            public VisualElement Root => m_ItemElement;
             public void AddTo(VisualElement root)
             {
                 root.Add(m_ItemElement);

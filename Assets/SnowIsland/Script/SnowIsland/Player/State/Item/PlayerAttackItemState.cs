@@ -20,17 +20,9 @@ namespace TaterGame.SnowIsland
         private Vector3 m_AtkCenter;
         private bool m_ShouldTransit = false;
         private bool m_Attacked;
-        private EventCenter m_EventCenter;
-        /// <summary>
-        /// 是否是成功完成的交互，
-        /// 如果是动画播放完成的交互，则返回true
-        /// 其他情况则为false
-        /// </summary>
-        private bool m_IsSuccess = false;
         protected override void Awake()
         {
             base.Awake();
-            m_EventCenter = ApplicationScope.Resolve<EventCenter>();
             m_PlayerCharacter = GetComponentInParent<PlayerCharacter>();
             m_PlayerAnimation = GetComponentInParent<PlayerAnimation>();
             m_PlayerStatus = GetComponentInParent<PlayerStatus>();
@@ -51,7 +43,6 @@ namespace TaterGame.SnowIsland
             m_PlayerAnimation.RPC_PlayAtkRpc();
             m_AnimatorMonitor.OnInvokeInvokeAttack.AddListener(InvokeAttack);
             m_Attacked = false;
-            m_IsSuccess = false;
         }
 
         protected override void OnFixedUpdate()
@@ -60,7 +51,6 @@ namespace TaterGame.SnowIsland
             if (m_ShouldTransit)
             {
                 m_ShouldTransit = false;
-                m_IsSuccess = true;
                 Machine.TryActivateState<PlayerIdleItemState>();
             }
         }
@@ -69,11 +59,6 @@ namespace TaterGame.SnowIsland
         {
             m_PlayerAnimation.RPC_SetDefault();
             m_AnimatorMonitor.OnInvokeInvokeAttack.RemoveListener(InvokeAttack);
-            m_EventCenter.PlayerInteractSuccess.OnNext(new PlayerEndInteractEvent()
-            {
-                Sender = m_PlayerCharacter.gameObject,
-                Success = m_IsSuccess
-            });
         }
 
         private void InvokeAttack()

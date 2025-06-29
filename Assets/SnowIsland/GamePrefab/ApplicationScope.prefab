@@ -51,6 +51,7 @@ MonoBehaviour:
   autoInjectGameObjects: []
   m_CommandTableSO: {fileID: 11400000, guid: 1e1a74b16d1baf641ba7d4e97379442e, type: 2}
   m_GameplaySettingSO: {fileID: 11400000, guid: 972ca4bf092aa8047ba54a9bf37b064c, type: 2}
+  m_InteractTableSO: {fileID: 11400000, guid: b865cacccf804384e8c4a7880033b183, type: 2}
   m_PlayerInput: {fileID: 5822893560112627113}
 --- !u!114 &5822893560112627113
 MonoBehaviour:

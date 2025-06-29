@@ -55,6 +55,54 @@ namespace TaterGame.SnowIsland
             }
         }
 
+        private ItemService m_ItemService;
+        private EventCenter m_EventCenter;
+        private void Awake()
+        {
+            m_ItemService = ApplicationScope.Resolve<ItemService>();
+            m_EventCenter = ApplicationScope.Resolve<EventCenter>();
+            
+        }
+
+        public bool CanSlotContainItem(ItemInfo slot,string itemId)
+        {
+            if (!m_ItemService.TryGetItem(slot.ItemId,out var item))
+            {
+                return true;
+            }
+            if (itemId.GetHashCode() != slot.ItemId)
+            {
+                return false;
+            }
+            return item.StackSize > slot.Amount;
+        }
+
+        public int GetFirstContainableSlot(string id)
+        {
+            if (CanSlotContainItem(InvSlot1, id))
+            {
+                return 0;
+            }
+            if (CanSlotContainItem(InvSlot2, id))
+            {
+                return 1;
+            }
+
+            if (CanSlotContainItem(InvSlot3, id))
+            {
+                return 2;
+            }
+            if (CanSlotContainItem(InvSlot4, id))
+            {
+                return 3;
+            }
+            if (InvSlot5Unlocked&& CanSlotContainItem(InvSlot5, id))
+            {
+                return 4;
+            }
+            return -1;
+        }
+
         
         [Serializable]
         public struct ItemInfo: INetworkStruct

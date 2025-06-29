@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4824125758803646573, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
       propertyPath: m_Name
-      value: DroppedItemRoot Variant
+      value: "\u6563\u5F39\u67AA_\u6389\u843D"
       objectReference: {fileID: 0}
     - target: {fileID: 7724235325822217711, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
       propertyPath: 'Guid.RawGuidValue.Array.data[0]'
@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: 'Guid.RawGuidValue.Array.data[1]'
       value: 9063476153553510889
       objectReference: {fileID: 0}
+    - target: {fileID: 8620368391310907325, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
+      propertyPath: m_BindItem
+      value: 
+      objectReference: {fileID: 11400000, guid: e429a7fbbccfbd048b5558fdd9e94061, type: 2}
     - target: {fileID: 8952847128349218333, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
       propertyPath: SortKey
       value: 112598220

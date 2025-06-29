@@ -126,6 +126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u9504_\u6389\u843D"
       objectReference: {fileID: 0}
+    - target: {fileID: 8620368391310907325, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
+      propertyPath: m_BindItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 9a87ea829f459044d908dbf37ed6e6ce, type: 2}
     - target: {fileID: 8952847128349218333, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
       propertyPath: SortKey
       value: 230204046

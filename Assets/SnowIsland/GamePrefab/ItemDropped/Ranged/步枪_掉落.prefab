@@ -122,6 +122,10 @@ PrefabInstance:
       propertyPath: 'Guid.RawGuidValue.Array.data[1]'
       value: -7792744790150671544
       objectReference: {fileID: 0}
+    - target: {fileID: 8620368391310907325, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
+      propertyPath: m_BindItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ee68e9c7ff0ff6469dcad4bb268fa52, type: 2}
     - target: {fileID: 8952847128349218333, guid: 8e52750c24473c04eb08cface9e05b02, type: 3}
       propertyPath: SortKey
       value: 2010563361

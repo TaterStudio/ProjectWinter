@@ -1,5 +1,6 @@
 using System;
 using UniRx;
+using UnityEngine;
 
 namespace TaterGame.SnowIsland.Shared
 {
@@ -31,5 +32,8 @@ namespace TaterGame.SnowIsland.Shared
 
         public Subject<PlayerEndInteractEvent> PlayerInteractSuccess => m_PlayerInteractSuccess;
         private Subject<PlayerEndInteractEvent> m_PlayerInteractSuccess = new();
+
+        public Subject<GameObject> OnInteractableDestroyed => m_OnInteractableDestroyed;
+        private Subject<GameObject> m_OnInteractableDestroyed = new();
     }
 }

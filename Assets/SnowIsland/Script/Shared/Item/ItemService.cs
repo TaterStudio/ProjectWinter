@@ -21,6 +21,11 @@ namespace TaterGame.SnowIsland.Shared
         public bool TryGetItem(string key, out ItemSO so)
         {
             return m_ItemSos.TryGetValue(key, out so);
+        }        
+        
+        public bool TryGetItem(int keyHash, out ItemSO so)
+        {
+            return m_HashItemSos.TryGetValue(keyHash, out so);
         }
 
         public ItemSO GetItem(string key)

@@ -14,6 +14,8 @@ namespace TaterGame.SnowIsland
         [SerializeField]
         private GamePlaySettingSO m_GameplaySettingSO;
         [SerializeField]
+        private InteractionTableSO m_InteractTableSO;
+        [SerializeField]
         private PlayerInput m_PlayerInput;
 
         protected override void Configure(IContainerBuilder builder)
@@ -26,7 +28,8 @@ namespace TaterGame.SnowIsland
             builder.RegisterEntryPoint<ItemService>().AsSelf();
             builder.RegisterComponent(m_PlayerInput).AsSelf();
             builder.RegisterEntryPoint<ItemDropperCommand>();
+            builder.RegisterInstance(m_InteractTableSO).AsSelf();
+            builder.RegisterEntryPoint<InteractDroppedController>();
         }
-
     }
 }

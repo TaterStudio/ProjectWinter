@@ -41,6 +41,11 @@ namespace TaterGame.SnowIsland.Shared
             m_EventCenter.OnPlayerExitInteract.OnNext(this);
         }
 
+        private void OnDestroy()
+        {
+            m_EventCenter.OnInteractableDestroyed.OnNext(gameObject);
+        }
+
         public void OnInteractSuccess(GameObject playerObj,int index)
         {
             this.Interaction[index].CompleteInteract(playerObj, gameObject);

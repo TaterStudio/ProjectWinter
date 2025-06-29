@@ -22,6 +22,7 @@ namespace TaterGame.SnowIsland
             if (player == Runner.LocalPlayer)
             {
                 var networkObject = Runner.Spawn(PlayerPrefab);
+                networkObject.name = "Player: "+player.PlayerId;
                 networkObject.AssignInputAuthority(Runner.LocalPlayer);
                 var obj = networkObject.gameObject;
                 m_ClientState.LocalPlayer = obj;
