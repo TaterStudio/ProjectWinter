@@ -30,6 +30,9 @@ namespace TaterGame.SnowIsland.Shared
         [SerializeField]
         private GameObject m_DropPrefab;
 
+        [SerializeField]
+        private Texture2D m_Icon;
+
         public GameObject ModelPrefab
         {
             get { return m_ModelPrefab; }
@@ -66,6 +69,10 @@ namespace TaterGame.SnowIsland.Shared
         }
 
         public string Id => name;
+        public Texture2D Icon
+        {
+            get => m_Icon;
+        }
 
         public void SetInitialData(string name, string displayName, string description,ItemDataSO itemDataSo)
         {

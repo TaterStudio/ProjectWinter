@@ -12,25 +12,25 @@ namespace TaterGame.SnowIsland
         [Networked]
         public RadioType RadioType{ get; set; }
 
-        [Networked]
+        [Networked,OnChangedRender(nameof(OnSlot1Changed))]
         public ItemInfo InvSlot1{ get; set; }
 
-        [Networked]
+        [Networked,OnChangedRender(nameof(OnSlot2Changed))]
         public ItemInfo InvSlot2{ get; set; }
 
-        [Networked]
+        [Networked,OnChangedRender(nameof(OnSlot3Changed))]
         public ItemInfo InvSlot3{ get; set; }
 
-        [Networked]
+        [Networked,OnChangedRender(nameof(OnSlot4Changed))]
         public ItemInfo InvSlot4{ get; set; }
 
-        [Networked]
+        [Networked,OnChangedRender(nameof(OnSlot5Changed))]
         public ItemInfo InvSlot5{ get; set; }
         
-        [Networked]
+        [Networked,OnChangedRender(nameof(OnSlot5Unlocked))]
         public NetworkBool InvSlot5Unlocked{ get; set; }
         
-        [Networked]
+        [Networked,OnChangedRender(nameof(OnSlotIndexChange))]
         public int InventorySlotIndex { get; set; }
         
         public ItemInfo CurrentItemInfo
@@ -103,14 +103,74 @@ namespace TaterGame.SnowIsland
             return -1;
         }
 
-        
-        [Serializable]
-        public struct ItemInfo: INetworkStruct
+        private void OnSlot1Changed()
         {
-            public int ItemId;
-            public int Amount;
-            public int Metadata;
-            public int Skin;
+            if (HasStateAuthority)
+            {
+                m_EventCenter.OnSlotChange.OnNext(new PlayerItemSlotChangeEvent()
+                {
+                    Slot = 0,
+                    ItemInfo = InvSlot1
+                });
+            }
+        }
+
+        private void OnSlot2Changed()
+        {
+            if (HasStateAuthority)
+            {
+                m_EventCenter.OnSlotChange.OnNext(new PlayerItemSlotChangeEvent()
+                {
+                    Slot = 1,
+                    ItemInfo = InvSlot2
+                });
+            }
+        }
+
+        private void OnSlot3Changed()
+        { 
+            if (HasStateAuthority)
+            {
+                m_EventCenter.OnSlotChange.OnNext(new PlayerItemSlotChangeEvent()
+                {
+                    Slot = 2,
+                    ItemInfo = InvSlot3
+                });
+            }
+        }
+
+        private void OnSlot4Changed()
+        { 
+            if (HasStateAuthority)
+            {
+                m_EventCenter.OnSlotChange.OnNext(new PlayerItemSlotChangeEvent()
+                {
+                    Slot = 3,
+                    ItemInfo = InvSlot4
+                });
+            }
+        }
+
+        private void OnSlot5Changed()
+        { 
+            if (HasStateAuthority)
+            {
+                m_EventCenter.OnSlotChange.OnNext(new PlayerItemSlotChangeEvent()
+                {
+                    Slot = 4,
+                    ItemInfo = InvSlot5
+                });
+            }
+        }
+
+        private void OnSlotIndexChange()
+        {
+            m_EventCenter.OnInventoryIndexChange.OnNext(InventorySlotIndex);
+        }
+
+        private void OnSlot5Unlocked()
+        {
+            m_EventCenter.OnSlot5Unlock.OnNext(InvSlot5Unlocked);
         }
     }
 }

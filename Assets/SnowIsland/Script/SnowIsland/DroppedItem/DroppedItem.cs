@@ -34,6 +34,7 @@ namespace TaterGame.SnowIsland
 
         public void Despawn()
         {
+            gameObject.SetActive(false);
             RPC_Despawn();
         }
         [Rpc(sources: RpcSources.All, targets: RpcTargets.StateAuthority)]

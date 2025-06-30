@@ -35,5 +35,12 @@ namespace TaterGame.SnowIsland.Shared
 
         public Subject<GameObject> OnInteractableDestroyed => m_OnInteractableDestroyed;
         private Subject<GameObject> m_OnInteractableDestroyed = new();
+        
+        private Subject<int> m_OnInventoryIndexChange = new();
+        public Subject<int> OnInventoryIndexChange => m_OnInventoryIndexChange;
+        private Subject<PlayerItemSlotChangeEvent> m_OnSlotChange = new();
+        public Subject<PlayerItemSlotChangeEvent> OnSlotChange => m_OnSlotChange;
+        private Subject<bool> m_OnSlot5Unlock = new();
+        public Subject<bool> OnSlot5Unlock => m_OnSlot5Unlock;
     }
 }

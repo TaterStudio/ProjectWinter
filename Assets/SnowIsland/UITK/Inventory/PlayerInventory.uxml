@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="InventoryItem" src="project://database/Assets/SnowIsland/UITK/Inventory/InventoryItem.uxml?fileID=9197481963319205126&amp;guid=e6e6ab21c54f13b49b806ab23837f630&amp;type=3#InventoryItem" />
+    <ui:VisualElement picking-mode="Ignore" name="InvRoot" style="flex-grow: 1; width: 682px; height: 125px; position: absolute; right: 0; bottom: 0; flex-direction: row; justify-content: space-between; margin-right: 20px; margin-left: 10px;">
+        <ui:Instance template="InventoryItem" name="Slot1" style="width: 100px; height: 100px;" />
+        <ui:Instance template="InventoryItem" name="Slot2" style="width: 100px; height: 100px;" />
+        <ui:Instance template="InventoryItem" name="Slot3" style="width: 100px; height: 100px;" />
+        <ui:Instance template="InventoryItem" name="Slot4" style="width: 100px; height: 100px;" />
+        <ui:Instance template="InventoryItem" name="Slot5" style="width: 100px; height: 100px;" />
+    </ui:VisualElement>
+</ui:UXML>
