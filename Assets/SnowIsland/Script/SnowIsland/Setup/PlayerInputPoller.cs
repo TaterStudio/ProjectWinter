@@ -53,6 +53,24 @@ namespace TaterGame.SnowIsland
             var interact = m_PlayerInput.actions[Constraints.Input.Interact].IsPressed();
             playerInputData.NetworkButtons.Set(PlayerInputButton.Interact, interact);
             
+            var radio = m_PlayerInput.actions[Constraints.Input.Radio].IsPressed();
+            playerInputData.NetworkButtons.Set(PlayerInputButton.Radio,radio);
+
+            var inv1 = m_PlayerInput.actions[Constraints.Input.InvSlot1].IsPressed();
+            playerInputData.NetworkButtons.Set(PlayerInputButton.InvSlot1,inv1);
+
+            var inv2 = m_PlayerInput.actions[Constraints.Input.InvSlot2].IsPressed();
+            playerInputData.NetworkButtons.Set(PlayerInputButton.InvSlot2, inv2);
+
+            var inv3 = m_PlayerInput.actions[Constraints.Input.InvSlot3].IsPressed();
+            playerInputData.NetworkButtons.Set(PlayerInputButton.InvSlot3, inv3);
+
+            var inv4 = m_PlayerInput.actions[Constraints.Input.InvSlot4].IsPressed();
+            playerInputData.NetworkButtons.Set(PlayerInputButton.InvSlot4, inv4);
+
+            var inv5 = m_PlayerInput.actions[Constraints.Input.InvSlot5].IsPressed();
+            playerInputData.NetworkButtons.Set(PlayerInputButton.InvSlot5, inv5);
+            
             input.Set(playerInputData);
             
             

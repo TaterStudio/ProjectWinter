@@ -172,5 +172,22 @@ namespace TaterGame.SnowIsland
         {
             m_EventCenter.OnSlot5Unlock.OnNext(InvSlot5Unlocked);
         }
+
+        public void SetSlotIndex(int index)
+        {
+            if (index is >= 0 and < 5)
+            {
+                if (index == 4 && !InvSlot5Unlocked)
+                {
+                    Debug.Log($"Slot{index}未解锁");
+                    return;
+                }
+                InventorySlotIndex = index;
+            }
+            else
+            {
+                Debug.LogError("Invalid slot index: " + index);
+            }
+        }
     }
 }

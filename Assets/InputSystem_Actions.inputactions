@@ -36,7 +36,7 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": false
@@ -90,6 +90,60 @@
                     "name": "FakeDead",
                     "type": "Button",
                     "id": "d65e2432-a493-402b-9cb1-1bb95f11c517",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Radio",
+                    "type": "Button",
+                    "id": "df63c242-093f-49dd-a45f-c286dc6be4b5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inv_Slot_1",
+                    "type": "Button",
+                    "id": "abad5907-e156-4383-acc9-c84dfd293d3d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inv_Slot_2",
+                    "type": "Button",
+                    "id": "5d1ec6fd-a1cd-42fa-8098-6e46f738a4f6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inv_Slot_3",
+                    "type": "Button",
+                    "id": "713c8988-209f-40ae-b023-b3e386f13adc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inv_Slot_4",
+                    "type": "Button",
+                    "id": "cf24aec5-58f0-4f86-88b0-42b088e637b9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Inv_Slot_5",
+                    "type": "Button",
+                    "id": "a0e7766d-2c43-4c05-98c2-89ccd3a1ebbd",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -490,6 +544,72 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "FakeDead",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49fd4e6b-b337-4567-ba36-1c0156c05696",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Radio",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83dca518-a03c-4eea-9869-9ad4bb2578f3",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inv_Slot_1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a2c934f-20fd-4aa4-935e-9d3516192ff2",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inv_Slot_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b12c49f3-a80f-4464-bed5-54ad00586a87",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inv_Slot_3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96398369-b27d-4ed1-8f4c-76493e59fe00",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inv_Slot_4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "33037eca-fe9e-4203-be6c-18a753ce9177",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inv_Slot_5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

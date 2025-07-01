@@ -1,11 +1,13 @@
 using TaterGame.SnowIsland.Shared;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace TaterGame.SnowIsland
 {
     [DisallowMultipleComponent]
     public class PlayerIdleItemState: PlayerBaseItemState
     {
+        protected PlayerInputData m_LastInputData;
         private ItemService m_ItemService;
         private PlayerUseItemState m_PlayerUseItemState;
         private PlayerAttackItemState m_PlayerAttackItemState;
@@ -28,32 +30,58 @@ namespace TaterGame.SnowIsland
 
         protected override void OnFixedUpdate()
         {
+            m_LastInputData = m_InputData;
             base.OnFixedUpdate();
 
             if (!HasInput)
             {
                 return;
             }
-            
-            bool isUse = m_InputData.NetworkButtons.IsSet(PlayerInputButton.Use);
-            
-            if (!isUse)
+
+            if (UpdateSwitch())
             {
                 return;
             }
+            UpdateUse();
+            return;
 
-            var itemInfo = m_PlayerInventoryState.CurrentItemInfo;
-            var item = m_ItemService.GetItem(itemInfo.ItemId);
-
-            switch (item.ItemDataSo)
+            bool UpdateSwitch()
             {
-                case IMeleeItem meleeItem:
-                    if(PlayerState.CanAttack())
+                for (int i = 1; i <= 5; i++)
+                {
+                    var button = (PlayerInputButton) (PlayerInputButton.InvSlot1 + (i - 1));
+                    if (m_InputData.NetworkButtons.WasPressed(m_LastInputData.NetworkButtons,button))
                     {
-                        m_PlayerAttackItemState.MeleeItem = meleeItem;
-                        Machine.TryActivateState(m_PlayerAttackItemState.StateId);
+                        m_PlayerInventoryState.SetSlotIndex(i - 1);
+                        return true;
                     }
-                    break;
+                }
+
+                return false;
+            }
+            
+            void UpdateUse()
+            {
+                bool isUse = m_InputData.NetworkButtons.IsSet(PlayerInputButton.Use);
+
+                if (!isUse)
+                {
+                    return;
+                }
+
+                var itemInfo = m_PlayerInventoryState.CurrentItemInfo;
+                var item = m_ItemService.GetItem(itemInfo.ItemId);
+
+                switch (item.ItemDataSo)
+                {
+                    case IMeleeItem meleeItem:
+                        if(PlayerState.CanAttack())
+                        {
+                            m_PlayerAttackItemState.MeleeItem = meleeItem;
+                            Machine.TryActivateState(m_PlayerAttackItemState.StateId);
+                        }
+                        break;
+                }
             }
         }
     }

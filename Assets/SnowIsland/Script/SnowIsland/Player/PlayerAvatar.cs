@@ -1,5 +1,8 @@
 using System;
+using Fusion;
 using Sirenix.OdinInspector;
+using TaterGame.SnowIsland.Shared;
+using UniRx;
 using UnityEngine;
 
 namespace TaterGame.SnowIsland
@@ -10,19 +13,64 @@ namespace TaterGame.SnowIsland
     [DisallowMultipleComponent]
     public class PlayerAvatar: MonoBehaviour
     {
+        [SerializeField]
+        private CharacterParts m_CharacterParts;
+
         [ShowInInspector]
         private bool m_RagdollEnable = false;
+
         private Animator m_Animator;
+
         private Rigidbody[] m_Rigidbodies;
+
         private PlayerCharacter m_Character;
+
+        private EventCenter m_EventCenter;
+
         private Transform m_Model;
+
+        private PlayerInventoryState m_PlayerInventoryState;
+
+        private ItemService m_ItemService;
 
         private void Awake()
         {
+            m_EventCenter = ApplicationScope.Resolve<EventCenter>();
+            m_ItemService = ApplicationScope.Resolve<ItemService>();
             m_Character = GetComponent<PlayerCharacter>();
             m_Model = m_Character.Model;
             m_Animator = m_Model.GetComponentInChildren<Animator>();
             m_Rigidbodies = m_Model.GetComponentsInChildren<Rigidbody>();
+            m_EventCenter.OnInventoryIndexChange.Subscribe(OnInvIndex).AddTo(this);
+            m_EventCenter.OnSlotChange.Subscribe(OnInvSlot).AddTo(this);
+            m_PlayerInventoryState = GetComponent<PlayerInventoryState>();
+        }
+
+        private void OnInvSlot(PlayerItemSlotChangeEvent _)
+        {
+            RPC_UpdateHandWeapon();
+        }
+
+        private void OnInvIndex(int _)
+        {
+            RPC_UpdateHandWeapon();
+        }
+
+        [Rpc(RpcSources.StateAuthority,RpcTargets.All)]
+        private void RPC_UpdateHandWeapon()
+        {
+            UpdateHandWeapon();
+        }
+
+        private void UpdateHandWeapon()
+        {
+            var itemId = m_PlayerInventoryState.CurrentItemInfo.ItemId;
+            if (!m_ItemService.TryGetItem(itemId, out var itemSO))
+            {
+                m_CharacterParts.RemoveRightWeapon();
+                return;
+            }
+            m_CharacterParts.ChangeRightWeapon(itemSO.ModelPrefab);
         }
 
         public void SetModelForward(Vector3 forward)

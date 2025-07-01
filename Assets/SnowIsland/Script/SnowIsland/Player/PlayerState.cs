@@ -54,6 +54,11 @@ namespace TaterGame.SnowIsland
         Shoot,
         //使用，无法暂停
         Attack,
+        
+        /// <summary>
+        /// 切换中，无法进行其他操作
+        /// </summary>
+        Switch
     }
 
     public enum PlayerLocomotionState

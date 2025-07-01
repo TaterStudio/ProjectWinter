@@ -22,6 +22,12 @@ namespace TaterGame.SnowIsland.Shared
             public const string Interact = "Interact";
             public const string Aim = "Aim";
             public const string FakeDead = "FakeDead";
+            public const string Radio = "Radio";
+            public const string InvSlot1 = "Inv_Slot_1";
+            public const string InvSlot2 = "Inv_Slot_2";
+            public const string InvSlot3 = "Inv_Slot_3";
+            public const string InvSlot4 = "Inv_Slot_4";
+            public const string InvSlot5 = "Inv_Slot_5";
         }
 
         public static class Layer
