@@ -1063,7 +1063,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8276379300802714463}
   serializedVersion: 8
-  lengthInSec: 60
+  lengthInSec: 40
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -1138,8 +1138,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 65
-      minScalar: 60
+      scalar: 30
+      minScalar: 25
       maxCurve:
         serializedVersion: 2
         m_Curve:

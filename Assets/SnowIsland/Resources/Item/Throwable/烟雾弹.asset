@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889b618cc20e44249e38254c74c1f37f, type: 3}
   m_Name: "\u70DF\u96FE\u5F39"
   m_EditorClassIdentifier: 
-  m_ModelPrefab: {fileID: 0}
+  m_ModelPrefab: {fileID: 2553934420326746284, guid: 95816af207bd0af4bbee3b0dd8bd85fb, type: 3}
   m_DisplayName: "\u7269\u54C1_\u540D\u5B57_\u70DF\u96FE\u5F39"
   m_Description: "\u7269\u54C1_\u4ECB\u7ECD_\u70DF\u96FE\u5F39"
   m_Durability: -1
   m_StackSize: 1
   m_ItemDataSo: {fileID: 11400000, guid: d336f73cc7927e8429b702160696211c, type: 2}
+  m_DropPrefab: {fileID: 0}
+  m_Icon: {fileID: 0}
