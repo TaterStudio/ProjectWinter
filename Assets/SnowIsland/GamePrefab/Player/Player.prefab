@@ -263,6 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ChangeAnimationCommand: {fileID: 11400000, guid: 6c8f98a7ffd0a934b816a947a05a15e6, type: 2}
   m_ToggleRagdollCommand: {fileID: 11400000, guid: 14000715ff6b0e640b0e7290c93e10b6, type: 2}
+  m_TestItemSet: {fileID: 11400000, guid: 492b88b43fee81d43aca8f0e43f62ad0, type: 2}
 --- !u!114 &3762384259721577377
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using HeathenEngineering.UX;
 using TaterGame.SnowIsland.Shared;
 using UniRx;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 namespace TaterGame.SnowIsland
@@ -22,6 +23,8 @@ namespace TaterGame.SnowIsland
         private Label m_ConsoleOutput;
         private EventCenter m_EventCenter;
         private ClientState m_ClientState;
+        private string m_LastEnter;
+        private bool m_Listen2Previouse;
         private void Awake()
         {
             m_ClientState = ApplicationScope.Resolve<ClientState>();
@@ -32,6 +35,8 @@ namespace TaterGame.SnowIsland
             m_ConsoleInput.RegisterValueChangedCallback(OnSubmit);
             m_ConsoleOutput = m_Root.Q<Label>();
             m_EventCenter.Log2Console.Subscribe(Log2Console).AddTo(this);
+            m_ConsoleInput.RegisterCallback<FocusEvent>(BeginListen);
+            m_ConsoleInput.RegisterCallback<FocusOutEvent>(StopListen);
         }
 
         private void Log2Console(string str)
@@ -40,11 +45,33 @@ namespace TaterGame.SnowIsland
             m_ConsoleOutput.text = string.Join("\n", m_FixedSizeQueue);
         }
 
+        private void StopListen(FocusOutEvent evt)
+        {
+            m_Listen2Previouse = false;
+        }
+
+        private void BeginListen(FocusEvent evt)
+        {
+            m_Listen2Previouse = true;
+        }
+
+        private void Update()
+        {
+            if (m_Listen2Previouse)
+            {
+                if (Keyboard.current.upArrowKey.wasPressedThisFrame)
+                {
+                    m_ConsoleInput.SetValueWithoutNotify(m_LastEnter);
+                }
+            }
+        }
+
         private void OnSubmit(UnityEngine.UIElements.ChangeEvent<string> evt)
         {
             m_ConsoleInput.SetValueWithoutNotify(string.Empty);
             m_EventCenter.Log2Console.OnNext($"{m_ClientState.LocalPlayer.name}: "+evt.newValue);
             m_CommandDirector.ParseInput(evt.newValue);
+            m_LastEnter = evt.newValue;
         }
 
         public void CommandRaised(CommandData data)
@@ -58,6 +85,16 @@ namespace TaterGame.SnowIsland
 
             switch (data.command)
             {
+                case IntGameEvent intGameEvent:
+                    if(int.TryParse(data.arguments,out int param))
+                    {
+                        intGameEvent.Invoke(param);
+                    }
+                    else
+                    {
+                        intGameEvent.Invoke();
+                    }
+                    break;
                 case StringGameEvent stringGameEvent:
                     stringGameEvent.Invoke(data.arguments);
                     break;

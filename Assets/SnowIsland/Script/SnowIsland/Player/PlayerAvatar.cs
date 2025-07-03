@@ -70,6 +70,7 @@ namespace TaterGame.SnowIsland
                 m_CharacterParts.RemoveRightWeapon();
                 return;
             }
+            m_CharacterParts.RemoveRightWeapon();
             m_CharacterParts.ChangeRightWeapon(itemSO.ModelPrefab);
         }
 

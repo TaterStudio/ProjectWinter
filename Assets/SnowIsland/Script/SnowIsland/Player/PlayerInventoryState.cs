@@ -35,28 +35,13 @@ namespace TaterGame.SnowIsland
         
         public ItemInfo CurrentItemInfo
         {
-            get
-            {
-                switch (InventorySlotIndex)
-                {
-                    case 0:
-                        return InvSlot1;
-                    case 1:
-                        return InvSlot2;
-                    case 2:
-                        return InvSlot3;
-                    case 3:
-                        return InvSlot4;
-                    case 4:
-                        return InvSlot5;
-                    default:
-                        throw new NullReferenceException($"非法的背包Index{InventorySlotIndex}");
-                }
-            }
+            get { return GetInvSlotByIndex(InventorySlotIndex); }
         }
 
         private ItemService m_ItemService;
+
         private EventCenter m_EventCenter;
+
         private void Awake()
         {
             m_ItemService = ApplicationScope.Resolve<ItemService>();
@@ -187,6 +172,52 @@ namespace TaterGame.SnowIsland
             else
             {
                 Debug.LogError("Invalid slot index: " + index);
+            }
+        }
+
+        public void SetItem(int invSlot, int itemHashCode)
+        {
+            var editedItem = GetInvSlotByIndex(invSlot);
+            editedItem.ItemId = itemHashCode;
+            editedItem.Amount = 1;
+            switch (invSlot)
+            {
+                case 0:
+                    InvSlot1 = editedItem;
+                    break;
+                case 1:
+                    InvSlot2 = editedItem;
+                    break;
+                case 2:
+                    InvSlot3 = editedItem;
+                    break;
+                case 3:
+                    InvSlot4 = editedItem;
+                    break;
+                case 4:
+                    InvSlot5 = editedItem;
+                    break;
+                default:
+                    throw new NullReferenceException($"非法的背包Index{InventorySlotIndex}");
+            }
+        }
+
+        public ItemInfo GetInvSlotByIndex(int slot)
+        {
+            switch (slot)
+            {
+                case 0:
+                    return InvSlot1;
+                case 1:
+                    return InvSlot2;
+                case 2:
+                    return InvSlot3;
+                case 3:
+                    return InvSlot4;
+                case 4:
+                    return InvSlot5;
+                default:
+                    throw new NullReferenceException($"非法的背包Index{InventorySlotIndex}");
             }
         }
     }
