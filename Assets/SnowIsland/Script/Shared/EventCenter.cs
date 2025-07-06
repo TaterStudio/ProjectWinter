@@ -45,5 +45,17 @@ namespace TaterGame.SnowIsland.Shared
         
         public Subject<ItemDropEvent> ItemDropEvent => m_ItemDropEvent;
         private Subject<ItemDropEvent> m_ItemDropEvent = new();
+        
+        public Subject<IndicatorCenter> SetIndicatorCenter => m_SetIndicatorCenter;
+        private Subject<IndicatorCenter> m_SetIndicatorCenter = new();
+
+
+        public Subject<IndicatorItem> OnIndicatorItemSpawn => m_OnIndicatorItemSpawn;
+        private Subject<IndicatorItem> m_OnIndicatorItemSpawn = new Subject<IndicatorItem>();
+
+        public Subject<IndicatorItem> OnIndicatorItemDestroyed => m_OnIndicatorItemDestroyed;
+        private Subject<IndicatorItem> m_OnIndicatorItemDestroyed = new Subject<IndicatorItem>();
+
+
     }
 }

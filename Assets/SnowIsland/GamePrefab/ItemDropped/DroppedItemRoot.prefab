@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8620368391310907325}
   - component: {fileID: 8048797586876421691}
   - component: {fileID: 8634893572443617591}
+  - component: {fileID: 2078878985077501106}
   m_Layer: 10
   m_Name: DroppedItemRoot
   m_TagString: Untagged
@@ -177,6 +178,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2078878985077501106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824125758803646573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5232fddbd67e48e2935c66b6d36f61ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IndicatorTexture: {fileID: 21300000, guid: 87cd98ddc10528742ac0c8a13cde73be, type: 3}
+  m_Offset: {x: 0, y: 2, z: 0}
+  m_ShowOutbounds: 0
 --- !u!1 &7733921107282101435
 GameObject:
   m_ObjectHideFlags: 0

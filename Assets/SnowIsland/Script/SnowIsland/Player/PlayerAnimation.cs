@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 using TaterGame.SnowIsland.Shared;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TaterGame.SnowIsland
 {
@@ -36,6 +37,9 @@ namespace TaterGame.SnowIsland
         [SerializeField]
         private TransitionAsset m_Atk;
 
+        [SerializeField]
+        private TransitionAsset m_Use;
+
         private PlayerCharacter m_PlayerCharacter;
         private AnimancerComponent m_AnimancerComponent;
         private PlayerState m_PlayerState;
@@ -53,6 +57,10 @@ namespace TaterGame.SnowIsland
 
         public IObservable<Unit> OnExitInteract => m_OnExitInteract;
         private Subject<Unit> m_OnExitInteract = new();
+
+        [SerializeField]
+        private AvatarMask m_UpperBodyLayerMask;
+        private AnimancerLayer m_UpperBodyLayer;
         
         private void Awake()
         {
@@ -61,6 +69,8 @@ namespace TaterGame.SnowIsland
             m_PlayerState = GetComponent<PlayerState>();
             m_AnimancerComponent = m_PlayerCharacter.Model.GetComponent<AnimancerComponent>();
             m_PlayerMovement.OnVelocityChange += SetVelocity;
+            m_UpperBodyLayer = m_AnimancerComponent.Layers[1];
+            m_UpperBodyLayer.Mask = m_UpperBodyLayerMask;
         }
 
         
@@ -130,15 +140,21 @@ namespace TaterGame.SnowIsland
             m_AnimancerComponent.Play(m_Revive);
         }
 
-        public float CurrentAnimationDuration(int i)
-        {
-            return m_AnimancerComponent.Layers[i].CurrentState.Duration;
-        }
-
         [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
         public void RPC_SetDefault()
         {
             PlayMovement();
+        }
+
+        private void PlayUseAnim(int index)
+        {
+            m_AnimancerComponent.Parameters.SetValue("UseIndex",(float)index);
+            m_UpperBodyLayer.Play(m_Use);
+        }
+
+        public float CurrentAnimationDuration(int i)
+        {
+            return m_AnimancerComponent.Layers[i].CurrentState.Duration;
         }
     }
 }

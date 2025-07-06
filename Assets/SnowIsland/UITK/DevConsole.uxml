@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="Root" style="width: 256px; height: 64px; min-height: 64px; max-height: 64px; min-width: 350px; max-width: 350px; bottom: 0; left: 0; position: absolute; flex-direction: column-reverse; margin-bottom: 10px; margin-left: 5px;">
-        <ui:TextField placeholder-text="请输入指令" is-delayed="true" name="Input" />
-        <ui:VisualElement name="Output" style="min-height: 200px; background-color: rgba(190, 190, 190, 0.66);">
+    <ui:VisualElement name="Root" style="width: 450px; height: 400px; min-height: 400px; max-height: 400px; min-width: 450px; max-width: 450px; bottom: -1px; left: 0; position: absolute; flex-direction: column-reverse; margin-bottom: 10px; margin-left: 5px; flex-grow: 1; flex-basis: 0; flex-wrap: nowrap; flex-shrink: 0;">
+        <ui:TextField placeholder-text="请输入指令" is-delayed="true" name="Input" style="width: 432px; font-size: 24px;" />
+        <ui:VisualElement name="Output" style="min-height: 200px; background-color: rgba(190, 190, 190, 0.66); width: 434px; font-size: 24px; flex-wrap: nowrap; flex-direction: column-reverse; height: auto;">
             <ui:Label text="1&#10;2&#10;3&#10;4&#10;5&#10;6&#10;7&#10;8&#10;9&#10;10&#10;11" style="width: 100%; height: 100%; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; white-space: normal; padding-right: 0; margin-right: 0;" />
         </ui:VisualElement>
     </ui:VisualElement>
