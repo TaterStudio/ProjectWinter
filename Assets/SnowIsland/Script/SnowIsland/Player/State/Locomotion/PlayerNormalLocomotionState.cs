@@ -81,6 +81,12 @@ namespace TaterGame.SnowIsland
                 m_CurrentInteractable.OnInteractFail(m_PlayerStatus.gameObject,m_InteractIndex);
                 return;
             }
+
+            if (m_CurrentInteractable == null)
+            {
+                Debug.LogWarning("很奇怪，交互中的东西没有了？");
+                return;
+            }
             m_CurrentInteractable.OnInteractSuccess(m_PlayerStatus.gameObject,m_InteractIndex);
         }
         

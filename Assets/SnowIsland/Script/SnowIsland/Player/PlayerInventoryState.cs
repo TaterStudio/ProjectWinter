@@ -36,17 +36,23 @@ namespace TaterGame.SnowIsland
         public ItemInfo CurrentItemInfo
         {
             get { return GetInvSlotByIndex(InventorySlotIndex); }
+            set
+            {
+                SetItem(InventorySlotIndex,value);
+            }
         }
 
         private ItemService m_ItemService;
 
         private EventCenter m_EventCenter;
 
+        private PlayerAvatar m_PlayerAvatar;
+
         private void Awake()
         {
             m_ItemService = ApplicationScope.Resolve<ItemService>();
             m_EventCenter = ApplicationScope.Resolve<EventCenter>();
-            
+            m_PlayerAvatar = GetComponentInParent<PlayerAvatar>();
         }
 
         public bool CanSlotContainItem(ItemInfo slot,string itemId)
@@ -179,11 +185,35 @@ namespace TaterGame.SnowIsland
             }
         }
 
-        public void SetItem(int invSlot, int itemHashCode)
+        private void SetItem(int inventorySlotIndex, ItemInfo editedItem)
+        {
+            switch (inventorySlotIndex)
+            {
+                case 0:
+                    InvSlot1 = editedItem;
+                    break;
+                case 1:
+                    InvSlot2 = editedItem;
+                    break;
+                case 2:
+                    InvSlot3 = editedItem;
+                    break;
+                case 3:
+                    InvSlot4 = editedItem;
+                    break;
+                case 4:
+                    InvSlot5 = editedItem;
+                    break;
+                default:
+                    throw new NullReferenceException($"非法的背包Index{InventorySlotIndex}");
+            }
+        }
+
+        public void SetItem(int invSlot, int itemHashCode,int amount = 1)
         {
             var editedItem = GetInvSlotByIndex(invSlot);
             editedItem.ItemId = itemHashCode;
-            editedItem.Amount = 1;
+            editedItem.Amount = amount;
             switch (invSlot)
             {
                 case 0:
@@ -222,6 +252,48 @@ namespace TaterGame.SnowIsland
                     return InvSlot5;
                 default:
                     throw new NullReferenceException($"非法的背包Index{InventorySlotIndex}");
+            }
+        }
+
+        public void DropCurrentItem()
+        {
+            var currentItemInfo = CurrentItemInfo;
+            var itemId = currentItemInfo.ItemId;
+            var amount = currentItemInfo.Amount;
+            if(!m_ItemService.TryGetItem(itemId, out var item))
+            {
+                Debug.Log("当前物品是手，无法丢弃");
+                return;
+            }
+
+            var itemRoot = m_PlayerAvatar.ItemRoot;
+
+            if (RemoveSuccess())
+            {
+                Debug.Log($"开始生成物品于{itemRoot.position}");
+                m_EventCenter.ItemDropEvent.OnNext(new ItemDropEvent()
+                {
+                    ItemId =  itemId,
+                    Position = itemRoot.position,
+                    Rotation = itemRoot.rotation,
+                });
+            }
+            return;
+
+            bool RemoveSuccess()
+            {
+                if (amount > 1)
+                {
+                    currentItemInfo.Amount--;
+                    CurrentItemInfo = currentItemInfo;
+                    return true;
+                }
+                else if (itemId!=0)
+                {
+                    CurrentItemInfo = default;
+                    return true;
+                }
+                return false;
             }
         }
     }

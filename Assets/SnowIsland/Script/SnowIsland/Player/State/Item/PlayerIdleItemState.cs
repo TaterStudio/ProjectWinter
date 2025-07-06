@@ -38,12 +38,32 @@ namespace TaterGame.SnowIsland
                 return;
             }
 
+            if (UpdateDrop())
+            {
+                return;
+            }
+
             if (UpdateSwitch())
             {
                 return;
             }
-            UpdateUse();
+
+            if (UpdateUse())
+            {
+                return;
+            }
             return;
+
+            bool UpdateDrop()
+            {
+                var drop = m_InputData.NetworkButtons.WasPressed(m_LastInputData.NetworkButtons,PlayerInputButton.Drop);
+                if (!drop)
+                {
+                    return false;
+                }
+                m_PlayerInventoryState.DropCurrentItem();
+                return true;
+            }
 
             bool UpdateSwitch()
             {
@@ -60,13 +80,13 @@ namespace TaterGame.SnowIsland
                 return false;
             }
             
-            void UpdateUse()
+            bool UpdateUse()
             {
                 bool isUse = m_InputData.NetworkButtons.IsSet(PlayerInputButton.Use);
 
                 if (!isUse)
                 {
-                    return;
+                    return false;
                 }
 
                 var itemInfo = m_PlayerInventoryState.CurrentItemInfo;
@@ -82,6 +102,8 @@ namespace TaterGame.SnowIsland
                         }
                         break;
                 }
+
+                return true;
             }
         }
     }

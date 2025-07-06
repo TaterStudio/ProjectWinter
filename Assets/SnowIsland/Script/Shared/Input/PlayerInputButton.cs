@@ -22,5 +22,8 @@ namespace TaterGame.SnowIsland.Shared
         InvSlot3 = 8,
         InvSlot4 = 9,
         InvSlot5 = 10,
+        
+        //丢弃物品
+        Drop = 11,
     }
 }

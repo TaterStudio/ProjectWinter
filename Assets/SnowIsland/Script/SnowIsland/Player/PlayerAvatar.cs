@@ -33,6 +33,13 @@ namespace TaterGame.SnowIsland
 
         private ItemService m_ItemService;
 
+        public Transform ItemRoot => m_CharacterParts.rightWeapon;
+
+        private void Update()
+        {
+            Debug.Log($"当前item的位置是{ItemRoot.position}");
+        }
+
         private void Awake()
         {
             m_EventCenter = ApplicationScope.Resolve<EventCenter>();
@@ -79,38 +86,38 @@ namespace TaterGame.SnowIsland
             m_Model.forward = forward;
         }
         
-        public void ToggleRagdoll()
-        {
-            if (m_RagdollEnable)
-            {
-                foreach (var rigidbody in m_Rigidbodies)
-                {
-                    rigidbody.isKinematic = true;
-                }
-                m_Animator.enabled = true;
-                m_RagdollEnable = false;
-            }
-            else
-            {
-                foreach (var rigidbody in m_Rigidbodies)
-                {
-                    rigidbody.isKinematic = false;
-                    rigidbody.linearVelocity = Vector3.zero;
-                }
-                m_Animator.enabled = false;
-                m_RagdollEnable = true;
-            }
-        }
-
-#if UNITY_EDITOR
-        [Button]
-        public void ToggleRagdollEditor()
-        {
-            if(Application.isPlaying)
-            {
-                ToggleRagdoll();
-            }
-        }
-#endif
+//         public void ToggleRagdoll()
+//         {
+//             if (m_RagdollEnable)
+//             {
+//                 foreach (var rigidbody in m_Rigidbodies)
+//                 {
+//                     rigidbody.isKinematic = true;
+//                 }
+//                 m_Animator.enabled = true;
+//                 m_RagdollEnable = false;
+//             }
+//             else
+//             {
+//                 foreach (var rigidbody in m_Rigidbodies)
+//                 {
+//                     rigidbody.isKinematic = false;
+//                     rigidbody.linearVelocity = Vector3.zero;
+//                 }
+//                 m_Animator.enabled = false;
+//                 m_RagdollEnable = true;
+//             }
+//         }
+//
+// #if UNITY_EDITOR
+//         [Button]
+//         public void ToggleRagdollEditor()
+//         {
+//             if(Application.isPlaying)
+//             {
+//                 ToggleRagdoll();
+//             }
+//         }
+// #endif
     }
 }

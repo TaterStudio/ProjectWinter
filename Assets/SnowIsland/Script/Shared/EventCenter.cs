@@ -42,5 +42,8 @@ namespace TaterGame.SnowIsland.Shared
         public Subject<PlayerItemSlotChangeEvent> OnSlotChange => m_OnSlotChange;
         private Subject<bool> m_OnSlot5Unlock = new();
         public Subject<bool> OnSlot5Unlock => m_OnSlot5Unlock;
+        
+        public Subject<ItemDropEvent> ItemDropEvent => m_ItemDropEvent;
+        private Subject<ItemDropEvent> m_ItemDropEvent = new();
     }
 }

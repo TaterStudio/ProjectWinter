@@ -71,6 +71,9 @@ namespace TaterGame.SnowIsland
             var inv5 = m_PlayerInput.actions[Constraints.Input.InvSlot5].IsPressed();
             playerInputData.NetworkButtons.Set(PlayerInputButton.InvSlot5, inv5);
             
+            var drop = m_PlayerInput.actions[Constraints.Input.Drop].IsPressed();
+            playerInputData.NetworkButtons.Set(PlayerInputButton.Drop, drop);
+            
             input.Set(playerInputData);
             
             

@@ -46,8 +46,9 @@ namespace TaterGame.SnowIsland.Dev
 
         private void ToggleRagdoll(EventData arg0)
         {
-            m_PlayerAvatar.ToggleRagdoll();
-            m_EventCenter.Log2Console.OnNext("已切换Ragdoll模式！");
+            // m_PlayerAvatar.ToggleRagdoll();
+            // m_EventCenter.Log2Console.OnNext("已切换Ragdoll模式！");
+            m_EventCenter.Log2Console.OnNext("对不起，动画已过时");
         }
 
         private void SetItems(EventData<int> arg0)
