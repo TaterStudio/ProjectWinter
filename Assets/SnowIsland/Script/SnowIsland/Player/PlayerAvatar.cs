@@ -35,10 +35,6 @@ namespace TaterGame.SnowIsland
 
         public Transform ItemRoot => m_CharacterParts.rightWeapon;
 
-        private void Update()
-        {
-            Debug.Log($"当前item的位置是{ItemRoot.position}");
-        }
 
         private void Awake()
         {

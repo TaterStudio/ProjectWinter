@@ -8,7 +8,7 @@ namespace TaterGame.SnowIsland.Shared
     {
         public int ItemId;
         public int Amount;
-        public int Metadata;
-        public int Skin;
+        // public int Metadata;
+        // public int Skin;
     }
 }

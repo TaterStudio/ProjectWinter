@@ -42,5 +42,11 @@ namespace TaterGame.SnowIsland
         {
             Runner.Despawn(GetComponent<NetworkObject>());
         }
+#if UNITY_EDITOR
+        public void SetBindItemEditor(ItemSO createInfoItem)
+        {
+            m_BindItem = createInfoItem;
+        }
+#endif
     }
 }

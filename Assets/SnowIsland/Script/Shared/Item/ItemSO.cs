@@ -81,5 +81,11 @@ namespace TaterGame.SnowIsland.Shared
             m_Description = description;
             m_ItemDataSo = itemDataSo;
         }
+#if UNITY_EDITOR
+        public void SetDropPrefabEditor(GameObject newestprefab)
+        {
+            m_DropPrefab = newestprefab;
+        }
+#endif
     }
 }
