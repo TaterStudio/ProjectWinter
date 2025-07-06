@@ -30,6 +30,7 @@ namespace TaterGame.SnowIsland
             builder.RegisterEntryPoint<ItemDropperCommand>();
             builder.RegisterInstance(m_InteractTableSO).AsSelf();
             builder.RegisterEntryPoint<InteractDroppedController>();
+            builder.RegisterEntryPoint<FrameRateLocker>();
         }
     }
 }

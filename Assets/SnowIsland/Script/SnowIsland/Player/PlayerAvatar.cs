@@ -11,7 +11,7 @@ namespace TaterGame.SnowIsland
     /// 负责自定义玩家的模型而不是动画
     /// </summary>
     [DisallowMultipleComponent]
-    public class PlayerAvatar: MonoBehaviour
+    public class PlayerAvatar: NetworkBehaviour
     {
         [SerializeField]
         private CharacterParts m_CharacterParts;

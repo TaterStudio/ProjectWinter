@@ -150,6 +150,10 @@ namespace TaterGame.SnowIsland
 
         private void OnSlotIndexChange()
         {
+            if (!HasStateAuthority)
+            {
+                return;
+            }
             m_EventCenter.OnInventoryIndexChange.OnNext(InventorySlotIndex);
         }
 
