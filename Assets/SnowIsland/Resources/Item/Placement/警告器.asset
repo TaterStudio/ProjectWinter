@@ -18,5 +18,5 @@ MonoBehaviour:
   m_Durability: -1
   m_StackSize: 1
   m_ItemDataSo: {fileID: 11400000, guid: 14cb05e1d0ac59c4d80200141258f77e, type: 2}
-  m_DropPrefab: {fileID: 0}
+  m_DropPrefab: {fileID: 715925295638094632, guid: 1a4d0449cc2883547a85a6918be59655, type: 3}
   m_Icon: {fileID: 0}

@@ -17,6 +17,6 @@ MonoBehaviour:
   m_Description: "\u7269\u54C1_\u4ECB\u7ECD_\u82F9\u679C"
   m_Durability: -1
   m_StackSize: 3
-  m_ItemDataSo: {fileID: 0}
+  m_ItemDataSo: {fileID: 11400000, guid: 323fd34d49d1aab4dbd1bcd6bc1a4234, type: 2}
   m_DropPrefab: {fileID: 1124040480649715572, guid: 87c02f24ec5b402448dc61a6eed5ae11, type: 3}
   m_Icon: {fileID: 0}

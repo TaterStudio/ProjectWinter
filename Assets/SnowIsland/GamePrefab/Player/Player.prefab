@@ -323,28 +323,18 @@ MonoBehaviour:
   _InvSlot1:
     ItemId: 0
     Amount: 0
-    Metadata: 0
-    Skin: 0
   _InvSlot2:
     ItemId: 0
     Amount: 0
-    Metadata: 0
-    Skin: 0
   _InvSlot3:
     ItemId: 0
     Amount: 0
-    Metadata: 0
-    Skin: 0
   _InvSlot4:
     ItemId: 0
     Amount: 0
-    Metadata: 0
-    Skin: 0
   _InvSlot5:
     ItemId: 0
     Amount: 0
-    Metadata: 0
-    Skin: 0
   _InvSlot5Unlocked:
     _value: 0
   _InventorySlotIndex: 0
