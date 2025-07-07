@@ -6,6 +6,11 @@ namespace TaterGame.SnowIsland.Shared
     [CreateAssetMenu(menuName = "TaterGame/SnowIsland/ItemData/Food")]
     public class ItemFoodDataSO: ItemDataSO
     {
+
+        public int AnimationIndex => m_AnimationIndex;
+        [SerializeField]
+        private int m_AnimationIndex;
+        
         [SerializeField]
         private FoodData m_FoodData;
 
